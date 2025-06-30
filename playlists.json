@@ -1,41 +1,5 @@
 [
   {
-    "id": "business-insights",
-    "name": "Business Insights",
-    "description": "Strategic discussions on business growth, leadership, and market trends. Interviews with industry leaders and entrepreneurs.",
-    "coverImage": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
-    "totalDuration": "2h 30m",
-    "episodes": [
-      {
-        "id": "biz-1",
-        "title": "Building Scalable Web Applications",
-        "description": "A deep dive into modern web development practices, architecture patterns, and technologies for scalable applications.",
-        "duration": "41:07",
-        "publishDate": "Nov 24, 2024",
-        "audioUrl": "https://github.com/bl5ck/magnificent-team-podcast/releases/download/v2.0/scalable-web-apps.wav",
-        "thumbnailUrl": "https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=300"
-      },
-      {
-        "id": "biz-2",
-        "title": "Data Analytics and Business Intelligence Trends",
-        "description": "Explore the latest trends in data analytics, BI tools, and how organizations leverage data for competitive advantage.",
-        "duration": "48:22",
-        "publishDate": "Nov 17, 2024",
-        "audioUrl": "https://github.com/bl5ck/magnificent-team-podcast/releases/download/v2.1/data-analytics-trends.wav",
-        "thumbnailUrl": "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=300"
-      },
-      {
-        "id": "biz-3",
-        "title": "Leadership in Digital Transformation",
-        "description": "How leaders can successfully guide their organizations through digital transformation initiatives.",
-        "duration": "35:45",
-        "publishDate": "Nov 10, 2024",
-        "audioUrl": "https://github.com/bl5ck/magnificent-team-podcast/releases/download/v2.2/digital-transformation-leadership.wav",
-        "thumbnailUrl": "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=300"
-      }
-    ]
-  },
-  {
     "id": "industry-trends",
     "name": "Industry Trends",
     "description": "Stay ahead of the curve with insights into emerging industry trends, market analysis, and future predictions.",
