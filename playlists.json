@@ -1,41 +1,5 @@
 [
   {
-    "id": "tech-talks",
-    "name": "Tech Talks & Innovation",
-    "description": "Exploring the latest in technology, innovation, and digital transformation. Deep dives into emerging trends and industry insights.",
-    "coverImage": "https://images.pexels.com/photos/7045933/pexels-photo-7045933.jpeg?auto=compress&cs=tinysrgb&w=400",
-    "totalDuration": "3h 45m",
-    "episodes": [
-      {
-        "id": "tech-1",
-        "title": "The Future of Artificial Intelligence in Business",
-        "description": "In this episode, we explore how AI is transforming business operations, from automation to decision-making processes.",
-        "duration": "45:32",
-        "publishDate": "Dec 15, 2024",
-        "audioUrl": "https://github.com/bl5ck/magnificent-team-podcast/releases/download/v1.0/ai-business-future.wav",
-        "thumbnailUrl": "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=300"
-      },
-      {
-        "id": "tech-2",
-        "title": "Cybersecurity Best Practices for Remote Teams",
-        "description": "With remote work becoming the norm, cybersecurity has never been more critical. Essential security measures and strategies.",
-        "duration": "38:15",
-        "publishDate": "Dec 8, 2024",
-        "audioUrl": "https://github.com/bl5ck/magnificent-team-podcast/releases/download/v1.1/cybersecurity-remote-teams.wav",
-        "thumbnailUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=300"
-      },
-      {
-        "id": "tech-3",
-        "title": "Cloud Migration Strategies and Success Stories",
-        "description": "Learn from real-world cloud migration experiences. Planning, execution, and optimization strategies.",
-        "duration": "52:18",
-        "publishDate": "Dec 1, 2024",
-        "audioUrl": "https://github.com/bl5ck/magnificent-team-podcast/releases/download/v1.2/cloud-migration-strategies.wav",
-        "thumbnailUrl": "https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=300"
-      }
-    ]
-  },
-  {
     "id": "business-insights",
     "name": "Business Insights",
     "description": "Strategic discussions on business growth, leadership, and market trends. Interviews with industry leaders and entrepreneurs.",
