@@ -1,0 +1,49 @@
+name: Concatenate Audio Chunks and Upload to Cloudinary
+
+on:
+  push:
+    paths:
+      - "public/data/uploads/*.json"
+
+jobs:
+  concat-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read upload info JSON
+        id: uploadinfo
+        run: |
+          json_file=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'public/data/uploads/' | tail -n1)
+          echo "JSON_FILE=$json_file" >> $GITHUB_ENV
+          cat "$json_file"
+          uploadId=$(jq -r .uploadId "$json_file")
+          totalChunks=$(jq -r .totalChunks "$json_file")
+          extension=$(jq -r .extension "$json_file")
+          echo "UPLOAD_ID=$uploadId" >> $GITHUB_ENV
+          echo "TOTAL_CHUNKS=$totalChunks" >> $GITHUB_ENV
+          echo "EXTENSION=$extension" >> $GITHUB_ENV
+
+      - name: Download audio chunks from Cloudinary
+        run: |
+          for i in $(seq -w 0 $(($TOTAL_CHUNKS - 1))); do
+            curl -L -o chunk-$i.$EXTENSION "https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/chunks/$UPLOAD_ID-chunk-$i.$EXTENSION"
+          done
+
+      - name: Concatenate with FFmpeg
+        run: |
+          for f in chunk-*.$EXTENSION; do echo "file '$PWD/$f'"; done > chunks.txt
+          ffmpeg -f concat -safe 0 -i chunks.txt -c copy output.$EXTENSION
+
+      - name: Upload concatenated file to Cloudinary
+        env:
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        run: |
+          pip install cloudinary
+          python -c "import cloudinary; import cloudinary.uploader; cloudinary.config(cloud_name='${{ secrets.CLOUDINARY_CLOUD_NAME }}', api_key='${{ secrets.CLOUDINARY_API_KEY }}', api_secret='${{ secrets.CLOUDINARY_API_SECRET }}'); result = cloudinary.uploader.upload('output.$EXTENSION', resource_type='raw', public_id=f'podcast/final/{os.environ[\'UPLOAD_ID\']}'); print(result)"
+
+      - name: Cleanup
+        run: rm -f chunk-*.$EXTENSION chunks.txt output.$EXTENSION
