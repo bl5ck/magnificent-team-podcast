@@ -45,5 +45,27 @@ jobs:
           pip install cloudinary
           python -c "import cloudinary; import cloudinary.uploader; cloudinary.config(cloud_name='${{ secrets.CLOUDINARY_CLOUD_NAME }}', api_key='${{ secrets.CLOUDINARY_API_KEY }}', api_secret='${{ secrets.CLOUDINARY_API_SECRET }}'); result = cloudinary.uploader.upload('output.$EXTENSION', resource_type='raw', public_id=f'podcast/final/{os.environ[\'UPLOAD_ID\']}'); print(result)"
 
+      - name: Update playlists.json with processingStatus
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip install jq
+          PLAYLISTS_FILE="public/data/playlists.json"
+          # Extract playlistId and episodeId from upload info JSON
+          playlistId=$(jq -r .playlistId "$JSON_FILE")
+          episodeId=$(jq -r .episodeId "$JSON_FILE")
+          # Get Cloudinary URL (from previous upload step output or reconstruct)
+          audioUrl="https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/final/$UPLOAD_ID.$EXTENSION"
+          # Update processingStatus and audioUrl in playlists.json
+          tmpfile=$(mktemp)
+          jq --arg pid "$playlistId" --arg eid "$episodeId" --arg url "$audioUrl" \
+            '(.[] | select(.id == $pid).episodes[] | select(.id == $eid)) |= (.processingStatus = "complete" | .audioUrl = $url)' \
+            "$PLAYLISTS_FILE" > "$tmpfile" && mv "$tmpfile" "$PLAYLISTS_FILE"
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add "$PLAYLISTS_FILE"
+          git commit -m "Mark episode $episodeId as complete in playlist $playlistId [skip ci]"
+          git push
+
       - name: Cleanup
         run: rm -f chunk-*.$EXTENSION chunks.txt output.$EXTENSION
