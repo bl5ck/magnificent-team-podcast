@@ -87,7 +87,7 @@ jobs:
           pip install cloudinary
 
           for i in $(seq -f "%04g" 0 $(($TOTAL_CHUNKS - 1))); do
-            chunk_public_id="podcast/chunks/$UPLOAD_ID-chunk-$i"
+            chunk_public_id="podcast/chunks/$UPLOAD_ID-chunk-$i.$EXTENSION"
             echo "Checking chunk $i: $chunk_public_id"
             
             python -c "import cloudinary; import cloudinary.api; cloudinary.config(cloud_name='${{ secrets.CLOUDINARY_CLOUD_NAME }}', api_key='${{ secrets.CLOUDINARY_API_KEY }}', api_secret='${{ secrets.CLOUDINARY_API_SECRET }}'); result = cloudinary.api.resource('$chunk_public_id', resource_type='raw'); print(f'✅ Chunk {i} exists: {result[\"public_id\"]} ({result[\"bytes\"]} bytes)')" || (echo "❌ Chunk $i not found" && exit 1)
