@@ -72,6 +72,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-LangGraph_BuildAdaptableAIAgentswav-15949484-1751427171488",
+        "title": "LangGraph_ Build Adaptable AI Agents",
+        "description": "LangGraph_ Build Adaptable AI Agents",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/LangGraph_BuildAdaptableAIAgentswav-15949484-1751427171488/playlist.m3u8",
+        "publishDate": "2025-07-10",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
