@@ -92,11 +92,22 @@ jobs:
             echo "Error: $PLAYLISTS_FILE does not exist and could not be downloaded."
             exit 1
           fi
+
+          # Check if upload JSON already has progress and HLS URL
+          progress=$(jq -r .progress "$JSON_FILE" 2>/dev/null || echo "null")
+          existingHlsUrl=$(jq -r .hlsUrl "$JSON_FILE" 2>/dev/null || echo "null")
+
+          if [ "$progress" = "complete" ] && [ "$existingHlsUrl" != "null" ]; then
+            echo "Upload already completed with HLS URL: $existingHlsUrl"
+            hlsUrl="$existingHlsUrl"
+          else
+            hlsUrl="https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/final/$UPLOAD_ID/playlist.m3u8"
+          fi
+
           playlistId=$(jq -r .playlistId "$JSON_FILE")
           episodeId=$(jq -r .episodeId "$JSON_FILE")
           episodeTitle=$(jq -r .episodeTitle "$JSON_FILE")
           episodeDescription=$(jq -r .episodeDescription "$JSON_FILE")
-          hlsUrl="https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/final/$UPLOAD_ID/playlist.m3u8"
 
           # Create new episode object
           newEpisode=$(jq -n \
@@ -126,6 +137,26 @@ jobs:
           api_url="https://api.github.com/repos/bl5ck/magnificent-team-podcast/contents/playlists.json"
           fileSha=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" "$api_url" | jq -r .sha)
           payload="{\"message\": \"Add new episode with HLS URL [skip ci]\", \"content\": \"$contentBase64\""
+          if [ "$fileSha" != "null" ] && [ -n "$fileSha" ]; then
+            payload="$payload, \"sha\": \"$fileSha\""
+          fi
+          payload="$payload}"
+          curl -X PUT -H "Authorization: Bearer $GITHUB_TOKEN" -H "Content-Type: application/json" -d "$payload" "$api_url"
+
+      - name: Update upload JSON with completion status
+        env:
+          GITHUB_TOKEN: ${{ secrets.CH_TOKEN }}
+        run: |
+          # Update the upload JSON with progress and HLS URL
+          tmpfile=$(mktemp)
+          jq --arg progress "complete" --arg hlsUrl "$hlsUrl" \
+            '. + {progress: $progress, hlsUrl: $hlsUrl}' \
+            "$JSON_FILE" > "$tmpfile" && mv "$tmpfile" "$JSON_FILE"
+
+          contentBase64=$(base64 -w 0 "$JSON_FILE")
+          api_url="https://api.github.com/repos/bl5ck/magnificent-team-podcast/contents/$JSON_FILE"
+          fileSha=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" "$api_url" | jq -r .sha)
+          payload="{\"message\": \"Update upload JSON with completion status [skip ci]\", \"content\": \"$contentBase64\""
           if [ "$fileSha" != "null" ] && [ -n "$fileSha" ]; then
             payload="$payload, \"sha\": \"$fileSha\""
           fi
