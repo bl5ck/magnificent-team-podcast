@@ -62,25 +62,28 @@ jobs:
       - name: Install FFmpeg
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
-      - name: Convert concatenated file to MP3
+      - name: Convert concatenated file to HLS (streamable format)
         run: |
-          ffmpeg -y -i full_upload.$EXTENSION -codec:a libmp3lame -b:a 192k output.mp3
+          mkdir -p hls
+          ffmpeg -y -i full_upload.$EXTENSION -codec:a aac -b:a 128k -f hls -hls_time 10 -hls_playlist_type vod -hls_segment_filename "hls/segment%03d.aac" hls/playlist.m3u8
 
-      - name: Upload MP3 file to Cloudinary
+      - name: Upload HLS files to Cloudinary
         env:
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
         run: |
           pip install cloudinary
-          python -c "import cloudinary; import cloudinary.uploader; cloudinary.config(cloud_name='${{ secrets.CLOUDINARY_CLOUD_NAME }}', api_key='${{ secrets.CLOUDINARY_API_KEY }}', api_secret='${{ secrets.CLOUDINARY_API_SECRET }}'); result = cloudinary.uploader.upload_large('output.mp3', resource_type='raw', public_id='podcast/final/${UPLOAD_ID}'); print(result)"
+          for f in hls/*; do
+            base=$(basename "$f")
+            python -c "import cloudinary; import cloudinary.uploader; cloudinary.config(cloud_name='${{ secrets.CLOUDINARY_CLOUD_NAME }}', api_key='${{ secrets.CLOUDINARY_API_KEY }}', api_secret='${{ secrets.CLOUDINARY_API_SECRET }}'); result = cloudinary.uploader.upload('$f', resource_type='raw', public_id='podcast/final/${UPLOAD_ID}/$base'); print(result)"
+          done
 
-      - name: Update playlists.json with processingStatus
+      - name: Update playlists.json with HLS playlist URL
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install jq
-          # Download the latest playlists.json from the main branch if not present
           PLAYLISTS_FILE="public/data/playlists.json"
           if [ ! -f "$PLAYLISTS_FILE" ]; then
             mkdir -p public/data
@@ -90,22 +93,17 @@ jobs:
             echo "Error: $PLAYLISTS_FILE does not exist and could not be downloaded."
             exit 1
           fi
-          # Extract playlistId and episodeId from upload info JSON
           playlistId=$(jq -r .playlistId "$JSON_FILE")
           episodeId=$(jq -r .episodeId "$JSON_FILE")
-          # Get Cloudinary URL (from previous upload step output or reconstruct)
-          audioUrl="https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/final/$UPLOAD_ID.mp3"
-          # Update processingStatus and audioUrl in playlists.json
+          hlsUrl="https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/final/$UPLOAD_ID/playlist.m3u8"
           tmpfile=$(mktemp)
-          jq --arg pid "$playlistId" --arg eid "$episodeId" --arg url "$audioUrl" \
+          jq --arg pid "$playlistId" --arg eid "$episodeId" --arg url "$hlsUrl" \
             '(.[] | select(.id == $pid).episodes[] | select(.id == $eid)) |= (.processingStatus = "complete" | .audioUrl = $url)' \
             "$PLAYLISTS_FILE" > "$tmpfile" && mv "$tmpfile" "$PLAYLISTS_FILE"
-          # Commit and upload playlists.json to GitHub via API (same as finalize-upload)
           contentBase64=$(base64 -w 0 "$PLAYLISTS_FILE")
           api_url="https://api.github.com/repos/bl5ck/magnificent-team-podcast/contents/public/data/playlists.json"
-          # Get current file SHA if file exists
           fileSha=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" "$api_url" | jq -r .sha)
-          payload="{\"message\": \"Update playlists.json with processing status [skip ci]\", \"content\": \"$contentBase64\""
+          payload="{\"message\": \"Update playlists.json with HLS URL [skip ci]\", \"content\": \"$contentBase64\""
           if [ "$fileSha" != "null" ] && [ -n "$fileSha" ]; then
             payload="$payload, \"sha\": \"$fileSha\""
           fi
@@ -113,4 +111,4 @@ jobs:
           curl -X PUT -H "Authorization: Bearer $GITHUB_TOKEN" -H "Content-Type: application/json" -d "$payload" "$api_url"
 
       - name: Cleanup
-        run: rm -f chunk-*.$EXTENSION full_upload.$EXTENSION output.mp3 output.$EXTENSION
+        run: rm -f chunk-*.$EXTENSION full_upload.$EXTENSION output.mp3 output.$EXTENSION && rm -rf hls
