@@ -235,6 +235,9 @@ jobs:
           echo "Episode ID: $episodeId"
           echo "Existing episode: $existingEpisode"
 
+          echo "Current playlist content:"
+          jq '.' "$PLAYLISTS_FILE" | head -20
+
           if [ "$existingEpisode" = "null" ]; then
             echo "Adding new episode to playlist..."
             # Add episode to playlist
@@ -253,6 +256,9 @@ jobs:
             echo "Episode updated successfully"
           fi
 
+          echo "Updated playlist content:"
+          jq '.' "$PLAYLISTS_FILE" | head -20
+
           contentBase64=$(base64 -w 0 "$PLAYLISTS_FILE")
           api_url="https://api.github.com/repos/bl5ck/magnificent-team-podcast/contents/playlists.json"
           echo "Getting file SHA from GitHub API..."
@@ -266,6 +272,16 @@ jobs:
           echo "Uploading updated playlists.json to GitHub..."
           response=$(curl -X PUT -H "Authorization: Bearer $GITHUB_TOKEN" -H "Content-Type: application/json" -d "$payload" "$api_url")
           echo "GitHub API response: $response"
+
+          # Check if the API call was successful
+          if echo "$response" | jq -e '.sha' > /dev/null 2>&1; then
+            echo "✅ Playlist updated successfully!"
+            echo "New SHA: $(echo "$response" | jq -r .sha)"
+          else
+            echo "❌ Failed to update playlist"
+            echo "Error response: $response"
+            exit 1
+          fi
 
       - name: Update upload JSON with completion status
         if: env.SKIP_CHUNK_PROCESSING != 'true'
