@@ -23,6 +23,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=300&h=300&fit=crop",
         "duration": "00:00"
+      },
+      {
+        "id": "episode-GoogleI_O2025_All100Announcementswav-61528364-1750329857816",
+        "title": "Google I_O 2025_ All 100 Announcements",
+        "description": "Google I_O 2025_ All 100 Announcements",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/GoogleI_O2025_All100Announcementswav-61528364-1750329857816/playlist.m3u8",
+        "publishDate": "2025-07-10",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
