@@ -150,11 +150,26 @@ jobs:
               duration: "00:00"
             }')
 
-          # Add episode to playlist
-          tmpfile=$(mktemp)
-          jq --arg pid "$playlistId" --argjson episode "$newEpisode" \
-            '(.[] | select(.id == $pid).episodes) += [$episode]' \
-            "$PLAYLISTS_FILE" > "$tmpfile" && mv "$tmpfile" "$PLAYLISTS_FILE"
+          # Check if episode already exists in playlist
+          existingEpisode=$(jq --arg pid "$playlistId" --arg eid "$episodeId" \
+            '(.[] | select(.id == $pid).episodes[] | select(.id == $eid))' \
+            "$PLAYLISTS_FILE" 2>/dev/null || echo "null")
+
+          if [ "$existingEpisode" = "null" ]; then
+            echo "Adding new episode to playlist..."
+            # Add episode to playlist
+            tmpfile=$(mktemp)
+            jq --arg pid "$playlistId" --argjson episode "$newEpisode" \
+              '(.[] | select(.id == $pid).episodes) += [$episode]' \
+              "$PLAYLISTS_FILE" > "$tmpfile" && mv "$tmpfile" "$PLAYLISTS_FILE"
+          else
+            echo "Episode already exists in playlist, updating with new HLS URL..."
+            # Update existing episode with new HLS URL
+            tmpfile=$(mktemp)
+            jq --arg pid "$playlistId" --arg eid "$episodeId" --arg audioUrl "$hlsUrl" \
+              '(.[] | select(.id == $pid).episodes[] | select(.id == $eid)) |= (.audioUrl = $audioUrl | .processingStatus = "complete")' \
+              "$PLAYLISTS_FILE" > "$tmpfile" && mv "$tmpfile" "$PLAYLISTS_FILE"
+          fi
 
           contentBase64=$(base64 -w 0 "$PLAYLISTS_FILE")
           api_url="https://api.github.com/repos/bl5ck/magnificent-team-podcast/contents/playlists.json"
