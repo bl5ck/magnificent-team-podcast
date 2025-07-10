@@ -38,13 +38,27 @@ jobs:
           echo "TOTAL_CHUNKS=$totalChunks" >> $GITHUB_ENV
           echo "EXTENSION=$extension" >> $GITHUB_ENV
 
+          # Check if upload is already completed
+          progress=$(jq -r .progress "$json_file" 2>/dev/null || echo "null")
+          existingHlsUrl=$(jq -r .hlsUrl "$json_file" 2>/dev/null || echo "null")
+
+          if [ "$progress" = "complete" ] && [ "$existingHlsUrl" != "null" ]; then
+            echo "Upload already completed with HLS URL: $existingHlsUrl"
+            echo "SKIP_CHUNK_PROCESSING=true" >> $GITHUB_ENV
+          else
+            echo "Processing new upload..."
+            echo "SKIP_CHUNK_PROCESSING=false" >> $GITHUB_ENV
+          fi
+
       - name: Download audio chunks from Cloudinary
+        if: env.SKIP_CHUNK_PROCESSING != 'true'
         run: |
           for i in $(seq -f "%04g" 0 $(($TOTAL_CHUNKS - 1))); do
             curl -L -o chunk-$i.$EXTENSION "https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/chunks/$UPLOAD_ID-chunk-$i.$EXTENSION"
           done
 
       - name: List and verify chunk files
+        if: env.SKIP_CHUNK_PROCESSING != 'true'
         run: |
           ls -lh chunk-*.$EXTENSION || echo "No chunks downloaded"
           for f in chunk-*.$EXTENSION; do
@@ -56,18 +70,22 @@ jobs:
           echo "All chunk files are present and non-empty."
 
       - name: Concatenate chunks as binary
+        if: env.SKIP_CHUNK_PROCESSING != 'true'
         run: |
           cat chunk-*.$EXTENSION > full_upload.$EXTENSION
 
       - name: Install FFmpeg
+        if: env.SKIP_CHUNK_PROCESSING != 'true'
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
       - name: Convert concatenated file to HLS (streamable format)
+        if: env.SKIP_CHUNK_PROCESSING != 'true'
         run: |
           mkdir -p hls
           ffmpeg -y -i full_upload.$EXTENSION -codec:a aac -b:a 128k -f hls -hls_time 10 -hls_playlist_type vod -hls_segment_filename "hls/segment%03d.aac" hls/playlist.m3u8
 
       - name: Upload HLS files to Cloudinary
+        if: env.SKIP_CHUNK_PROCESSING != 'true'
         env:
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
@@ -144,6 +162,7 @@ jobs:
           curl -X PUT -H "Authorization: Bearer $GITHUB_TOKEN" -H "Content-Type: application/json" -d "$payload" "$api_url"
 
       - name: Update upload JSON with completion status
+        if: env.SKIP_CHUNK_PROCESSING != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.CH_TOKEN }}
         run: |
@@ -164,6 +183,7 @@ jobs:
           curl -X PUT -H "Authorization: Bearer $GITHUB_TOKEN" -H "Content-Type: application/json" -d "$payload" "$api_url"
 
       - name: Delete chunk files from Cloudinary
+        if: env.SKIP_CHUNK_PROCESSING != 'true'
         env:
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
@@ -176,4 +196,5 @@ jobs:
           done
 
       - name: Cleanup
+        if: env.SKIP_CHUNK_PROCESSING != 'true'
         run: rm -f chunk-*.$EXTENSION full_upload.$EXTENSION output.mp3 output.$EXTENSION && rm -rf hls
