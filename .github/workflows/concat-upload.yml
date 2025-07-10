@@ -81,7 +81,7 @@ jobs:
 
       - name: Update playlists.json with HLS playlist URL
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CH_TOKEN }}
         run: |
           pip install jq
           PLAYLISTS_FILE="public/data/playlists.json"
