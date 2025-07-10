@@ -8,10 +8,5 @@
     "creator": "Podcast",
     "playlistName": "Event Recaps - 2025"
   },
-  "fileExtension": "wav",
-  "cloudinaryConfig": {
-    "cloudName": "dvtckdk3d",
-    "apiKey": "384323234183933",
-    "apiSecret": "8Q3QaZOq9kH-a-fpjZ_Oe4SBYc4"
-  }
+  "fileExtension": "wav"
 }
