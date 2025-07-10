@@ -40,7 +40,7 @@ jobs:
 
       - name: Download audio chunks from Cloudinary
         run: |
-          for i in $(seq -w 0 $(($TOTAL_CHUNKS - 1))); do
+          for i in $(seq -f "%04g" 0 $(($TOTAL_CHUNKS - 1))); do
             curl -L -o chunk-$i.$EXTENSION "https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/chunks/$UPLOAD_ID-chunk-$i.$EXTENSION"
           done
 
