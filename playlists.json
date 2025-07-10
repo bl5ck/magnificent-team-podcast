@@ -62,6 +62,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-gemini-cli-your-open-source-ai-agentwav-34830764-1751338703671",
+        "title": "Gemini Cli Your Open-source Ai Agent",
+        "description": "Gemini Cli Your Open-source Ai Agent",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/gemini-cli-your-open-source-ai-agentwav-34830764-1751338703671/playlist.m3u8",
+        "publishDate": "2025-07-10",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
