@@ -8,5 +8,11 @@
     "creator": "Podcast",
     "playlistName": "Event Recaps - 2025"
   },
-  "fileExtension": "wav"
+  "fileExtension": "wav",
+  "playlistId": "event-recaps-2025",
+  "episodeId": "episode-MicrosoftBuild2025BookofNewswav-68958764-1750331551354",
+  "episodeTitle": "Microsoft Build 2025 Book of News",
+  "episodeDescription": "Microsoft Build 2025 Book of News",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/demo/raw/upload/podcast/final/MicrosoftBuild2025BookofNewswav-68958764-1750331551354/playlist.m3u8"
 }
