@@ -124,6 +124,9 @@ jobs:
             hlsUrl="https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/final/$UPLOAD_ID/playlist.m3u8"
           fi
 
+          # Make hlsUrl available as environment variable
+          echo "HLS_URL=$hlsUrl" >> $GITHUB_ENV
+
           playlistId=$(jq -r .playlistId "$JSON_FILE")
           episodeId=$(jq -r .episodeId "$JSON_FILE")
           episodeTitle=$(jq -r .episodeTitle "$JSON_FILE")
@@ -170,7 +173,7 @@ jobs:
         run: |
           # Update the upload JSON with progress and HLS URL
           tmpfile=$(mktemp)
-          jq --arg progress "complete" --arg hlsUrl "$hlsUrl" \
+          jq --arg progress "complete" --arg hlsUrl "$HLS_URL" \
             '. + {progress: $progress, hlsUrl: $hlsUrl}' \
             "$JSON_FILE" > "$tmpfile" && mv "$tmpfile" "$JSON_FILE"
 
