@@ -1,0 +1,17 @@
+{
+  "uploadId": "MicrosoftBuild2025BookofNewswav-68958764-1750331551354",
+  "fileName": "Microsoft Build 2025 Book of News.wav",
+  "totalChunks": 17,
+  "metadata": {
+    "title": "Microsoft Build 2025 Book of News",
+    "description": "Microsoft Build 2025 Book of News",
+    "creator": "Podcast",
+    "playlistName": "Event Recaps - 2025"
+  },
+  "fileExtension": "wav",
+  "cloudinaryConfig": {
+    "cloudName": "dvtckdk3d",
+    "apiKey": "384323234183933",
+    "apiSecret": "8Q3QaZOq9kH-a-fpjZ_Oe4SBYc4"
+  }
+}
