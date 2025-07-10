@@ -3,7 +3,7 @@ name: Concatenate Audio Chunks and Upload to Cloudinary
 on:
   push:
     paths:
-      - "public/data/uploads/*.json"
+      - 'public/data/uploads/*.json'
 
 jobs:
   concat-upload:
@@ -84,9 +84,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.CH_TOKEN }}
         run: |
           pip install jq
-          PLAYLISTS_FILE="public/data/playlists.json"
+          PLAYLISTS_FILE="playlists.json"
           if [ ! -f "$PLAYLISTS_FILE" ]; then
-            mkdir -p public/data
             curl -L -o "$PLAYLISTS_FILE" "https://raw.githubusercontent.com/bl5ck/magnificent-team-podcast/main/playlists.json"
           fi
           if [ ! -f "$PLAYLISTS_FILE" ]; then
@@ -95,15 +94,38 @@ jobs:
           fi
           playlistId=$(jq -r .playlistId "$JSON_FILE")
           episodeId=$(jq -r .episodeId "$JSON_FILE")
+          episodeTitle=$(jq -r .episodeTitle "$JSON_FILE")
+          episodeDescription=$(jq -r .episodeDescription "$JSON_FILE")
           hlsUrl="https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/final/$UPLOAD_ID/playlist.m3u8"
+
+          # Create new episode object
+          newEpisode=$(jq -n \
+            --arg id "$episodeId" \
+            --arg title "$episodeTitle" \
+            --arg description "$episodeDescription" \
+            --arg audioUrl "$hlsUrl" \
+            --arg publishDate "$(date +%Y-%m-%d)" \
+            '{
+              id: $id,
+              title: $title,
+              description: $description,
+              audioUrl: $audioUrl,
+              publishDate: $publishDate,
+              processingStatus: "complete",
+              thumbnailUrl: null,
+              duration: "00:00"
+            }')
+
+          # Add episode to playlist
           tmpfile=$(mktemp)
-          jq --arg pid "$playlistId" --arg eid "$episodeId" --arg url "$hlsUrl" \
-            '(.[] | select(.id == $pid).episodes[] | select(.id == $eid)) |= (.processingStatus = "complete" | .audioUrl = $url)' \
+          jq --arg pid "$playlistId" --argjson episode "$newEpisode" \
+            '(.[] | select(.id == $pid).episodes) += [$episode]' \
             "$PLAYLISTS_FILE" > "$tmpfile" && mv "$tmpfile" "$PLAYLISTS_FILE"
+
           contentBase64=$(base64 -w 0 "$PLAYLISTS_FILE")
-          api_url="https://api.github.com/repos/bl5ck/magnificent-team-podcast/contents/public/data/playlists.json"
+          api_url="https://api.github.com/repos/bl5ck/magnificent-team-podcast/contents/playlists.json"
           fileSha=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" "$api_url" | jq -r .sha)
-          payload="{\"message\": \"Update playlists.json with HLS URL [skip ci]\", \"content\": \"$contentBase64\""
+          payload="{\"message\": \"Add new episode with HLS URL [skip ci]\", \"content\": \"$contentBase64\""
           if [ "$fileSha" != "null" ] && [ -n "$fileSha" ]; then
             payload="$payload, \"sha\": \"$fileSha\""
           fi
