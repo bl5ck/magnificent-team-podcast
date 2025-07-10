@@ -82,6 +82,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-12-FactorAgents_ReliableLLMApplicationPatternswav-58055084-1752038235729",
+        "title": "12-Factor Agents_ Reliable LLM Application Patterns",
+        "description": "12-Factor Agents_ Reliable LLM Application Patterns",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/12-FactorAgents_ReliableLLMApplicationPatternswav-58055084-1752038235729/playlist.m3u8",
+        "publishDate": "2025-07-10",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
