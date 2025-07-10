@@ -70,7 +70,7 @@ jobs:
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
         run: |
           pip install cloudinary
-          python -c "import cloudinary; import cloudinary.uploader; cloudinary.config(cloud_name='${{ secrets.CLOUDINARY_CLOUD_NAME }}', api_key='${{ secrets.CLOUDINARY_API_KEY }}', api_secret='${{ secrets.CLOUDINARY_API_SECRET }}'); result = cloudinary.uploader.upload('output.$EXTENSION', resource_type='raw', public_id=f'podcast/final/{os.environ[\'UPLOAD_ID\']}'); print(result)"
+          python -c "import cloudinary; import cloudinary.uploader; cloudinary.config(cloud_name='${{ secrets.CLOUDINARY_CLOUD_NAME }}', api_key='${{ secrets.CLOUDINARY_API_KEY }}', api_secret='${{ secrets.CLOUDINARY_API_SECRET }}'); result = cloudinary.uploader.upload('output.${EXTENSION}', resource_type='raw', public_id='podcast/final/${UPLOAD_ID}'); print(result)"
 
       - name: Update playlists.json with processingStatus
         env:
