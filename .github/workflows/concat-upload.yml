@@ -15,6 +15,11 @@ on:
         required: false
         type: boolean
         default: false
+      playlist_update_only:
+        description: 'Skip chunk processing and only update playlist (for completed uploads)'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   concat-upload:
@@ -128,18 +133,45 @@ jobs:
           progress=$(jq -r .progress "$json_file" 2>/dev/null || echo "null")
           existingHlsUrl=$(jq -r .hlsUrl "$json_file" 2>/dev/null || echo "null")
 
-          # For manual triggers, check if force processing is enabled
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.force_process }}" = "true" ]; then
-            echo "Manual trigger with force processing enabled"
-            echo "Processing upload regardless of completion status..."
-            echo "SKIP_CHUNK_PROCESSING=false" >> $GITHUB_ENV
-          elif [ "$progress" = "complete" ] && [ "$existingHlsUrl" != "null" ]; then
-            echo "Upload already completed with HLS URL: $existingHlsUrl"
-            echo "Skipping completed upload..."
-            echo "SKIP_CHUNK_PROCESSING=true" >> $GITHUB_ENV
+          # For manual triggers, check processing options
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ "${{ github.event.inputs.playlist_update_only }}" = "true" ]; then
+              echo "Manual trigger: Playlist update only mode"
+              echo "Skipping chunk processing, will only update playlist..."
+              echo "SKIP_CHUNK_PROCESSING=true" >> $GITHUB_ENV
+            elif [ "${{ github.event.inputs.force_process }}" = "true" ]; then
+              echo "Manual trigger with force processing enabled"
+              
+              # Check if upload is completed - if so, chunks are likely deleted
+              if [ "$progress" = "complete" ] && [ "$existingHlsUrl" != "null" ]; then
+                echo "⚠️ Warning: Upload appears completed. Chunks may have been deleted."
+                echo "Force processing completed uploads may fail due to missing chunks."
+                echo "Consider using playlist update only instead."
+              fi
+              
+              echo "Processing upload regardless of completion status..."
+              echo "SKIP_CHUNK_PROCESSING=false" >> $GITHUB_ENV
+            else
+              # Normal manual trigger - check completion status
+              if [ "$progress" = "complete" ] && [ "$existingHlsUrl" != "null" ]; then
+                echo "Upload already completed with HLS URL: $existingHlsUrl"
+                echo "Skipping completed upload..."
+                echo "SKIP_CHUNK_PROCESSING=true" >> $GITHUB_ENV
+              else
+                echo "Processing incomplete upload..."
+                echo "SKIP_CHUNK_PROCESSING=false" >> $GITHUB_ENV
+              fi
+            fi
           else
-            echo "Processing incomplete upload..."
-            echo "SKIP_CHUNK_PROCESSING=false" >> $GITHUB_ENV
+            # Automatic trigger - check completion status
+            if [ "$progress" = "complete" ] && [ "$existingHlsUrl" != "null" ]; then
+              echo "Upload already completed with HLS URL: $existingHlsUrl"
+              echo "Skipping completed upload..."
+              echo "SKIP_CHUNK_PROCESSING=true" >> $GITHUB_ENV
+            else
+              echo "Processing incomplete upload..."
+              echo "SKIP_CHUNK_PROCESSING=false" >> $GITHUB_ENV
+            fi
           fi
 
       - name: Verify chunks exist on Cloudinary
