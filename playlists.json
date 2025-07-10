@@ -33,6 +33,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-MicrosoftBuild2025BookofNewswav-68958764-1750331551354",
+        "title": "Microsoft Build 2025 Book of News",
+        "description": "Microsoft Build 2025 Book of News",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/MicrosoftBuild2025BookofNewswav-68958764-1750331551354/playlist.m3u8",
+        "publishDate": "2025-07-10",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
