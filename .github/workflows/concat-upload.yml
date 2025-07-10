@@ -371,11 +371,16 @@ jobs:
           response=$(curl -X PUT -H "Authorization: Bearer $GITHUB_TOKEN" -H "Content-Type: application/json" -d "$payload" "$api_url")
           echo "GitHub API response: $response"
 
-          # Check if the API call was successful
-          if echo "$response" | jq -e '.content.sha' > /dev/null 2>&1; then
+                    # Check if the API call was successful
+          echo "Checking API response for success..."
+          content_sha=$(echo "$response" | jq -r '.content.sha // "NOT_FOUND"')
+          echo "Content SHA: $content_sha"
+
+          if [ "$content_sha" != "NOT_FOUND" ] && [ "$content_sha" != "null" ]; then
             echo "✅ Playlist updated successfully!"
-            echo "New SHA: $(echo "$response" | jq -r .content.sha)"
-            echo "Commit SHA: $(echo "$response" | jq -r .commit.sha)"
+            echo "New SHA: $content_sha"
+            commit_sha=$(echo "$response" | jq -r '.commit.sha // "NOT_FOUND"')
+            echo "Commit SHA: $commit_sha"
           else
             echo "❌ Failed to update playlist"
             echo "Error response: $response"
