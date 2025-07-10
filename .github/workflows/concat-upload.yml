@@ -287,9 +287,9 @@ jobs:
           echo "UPLOAD_ID: $UPLOAD_ID"
           pip install jq
           PLAYLISTS_FILE="playlists.json"
-          if [ ! -f "$PLAYLISTS_FILE" ]; then
-            curl -L -o "$PLAYLISTS_FILE" "https://raw.githubusercontent.com/bl5ck/magnificent-team-podcast/main/playlists.json"
-          fi
+          # Always download the latest version from GitHub to avoid stale data
+          echo "Downloading latest playlists.json from GitHub..."
+          curl -L -o "$PLAYLISTS_FILE" "https://raw.githubusercontent.com/bl5ck/magnificent-team-podcast/main/playlists.json"
           if [ ! -f "$PLAYLISTS_FILE" ]; then
             echo "Error: $PLAYLISTS_FILE does not exist and could not be downloaded."
             exit 1
