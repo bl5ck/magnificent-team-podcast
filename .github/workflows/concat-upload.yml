@@ -372,9 +372,10 @@ jobs:
           echo "GitHub API response: $response"
 
           # Check if the API call was successful
-          if echo "$response" | jq -e '.sha' > /dev/null 2>&1; then
+          if echo "$response" | jq -e '.content.sha' > /dev/null 2>&1; then
             echo "✅ Playlist updated successfully!"
-            echo "New SHA: $(echo "$response" | jq -r .sha)"
+            echo "New SHA: $(echo "$response" | jq -r .content.sha)"
+            echo "Commit SHA: $(echo "$response" | jq -r .commit.sha)"
           else
             echo "❌ Failed to update playlist"
             echo "Error response: $response"
