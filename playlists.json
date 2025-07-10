@@ -92,6 +92,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-CursorWebApp_MobileCodeFixesandRefactoringwav-35545004-1752140017361",
+        "title": "Cursor Web App_ Mobile Code Fixes and Refactoring",
+        "description": "Cursor Web App_ Mobile Code Fixes and Refactoring",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/CursorWebApp_MobileCodeFixesandRefactoringwav-35545004-1752140017361/playlist.m3u8",
+        "publishDate": "2025-07-10",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
