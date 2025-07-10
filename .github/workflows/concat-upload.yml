@@ -17,9 +17,11 @@ jobs:
         run: |
           # Try to get the latest added/modified JSON file in uploads
           json_file=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'public/data/uploads/' | tail -n1)
-          # Fallback: list the most recent file if above fails
+
+          # If no file was modified in this commit, exit
           if [ -z "$json_file" ]; then
-            json_file=$(ls -t public/data/uploads/*.json | head -n1)
+            echo "No upload JSON files were modified in this commit. Exiting."
+            exit 0
           fi
           if [ ! -f "$json_file" ]; then
             echo "No upload info JSON file found. Exiting."
@@ -38,9 +40,18 @@ jobs:
           echo "TOTAL_CHUNKS=$totalChunks" >> $GITHUB_ENV
           echo "EXTENSION=$extension" >> $GITHUB_ENV
 
-          # Always process new uploads - don't skip based on existing metadata
-          echo "Processing new upload..."
-          echo "SKIP_CHUNK_PROCESSING=false" >> $GITHUB_ENV
+          # Check if this upload is already completed
+          progress=$(jq -r .progress "$json_file" 2>/dev/null || echo "null")
+          existingHlsUrl=$(jq -r .hlsUrl "$json_file" 2>/dev/null || echo "null")
+
+          if [ "$progress" = "complete" ] && [ "$existingHlsUrl" != "null" ]; then
+            echo "Upload already completed with HLS URL: $existingHlsUrl"
+            echo "This is an old upload, skipping processing..."
+            echo "SKIP_CHUNK_PROCESSING=true" >> $GITHUB_ENV
+          else
+            echo "Processing new upload..."
+            echo "SKIP_CHUNK_PROCESSING=false" >> $GITHUB_ENV
+          fi
 
       - name: Verify chunks exist on Cloudinary
         if: env.SKIP_CHUNK_PROCESSING != 'true'
