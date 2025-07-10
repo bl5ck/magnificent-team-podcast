@@ -40,6 +40,9 @@ jobs:
             curl -L -o chunk-$i.$EXTENSION "https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/chunks/$UPLOAD_ID-chunk-$i.$EXTENSION"
           done
 
+      - name: Install FFmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
       - name: Concatenate with FFmpeg
         run: |
           for f in chunk-*.$EXTENSION; do echo "file '$PWD/$f'"; done > chunks.txt
