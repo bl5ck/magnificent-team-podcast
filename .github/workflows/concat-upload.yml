@@ -4,6 +4,17 @@ on:
   push:
     paths:
       - 'public/data/uploads/*.json'
+  workflow_dispatch:
+    inputs:
+      upload_id:
+        description: 'Upload ID to process (optional - will find incomplete uploads if not specified)'
+        required: false
+        type: string
+      force_process:
+        description: 'Force process even if upload appears completed'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   concat-upload:
@@ -14,32 +25,82 @@ jobs:
 
       - name: Read upload info JSON
         id: uploadinfo
-        run: |
-          # Try to get the latest added/modified JSON file in uploads
-          json_file=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'public/data/uploads/' | tail -n1)
-
-          # If no file was modified in this commit, look for incomplete uploads
-          if [ -z "$json_file" ]; then
-            echo "No upload JSON files were modified in this commit."
-            echo "Looking for incomplete uploads to process..."
+                run: |
+          # Check if this is a manual trigger
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual workflow trigger detected"
             
-            # Find incomplete uploads (no progress or progress != complete)
-            for file in public/data/uploads/*.json; do
-              if [ -f "$file" ]; then
-                progress=$(jq -r .progress "$file" 2>/dev/null || echo "null")
-                hlsUrl=$(jq -r .hlsUrl "$file" 2>/dev/null || echo "null")
-                
-                if [ "$progress" != "complete" ] || [ "$hlsUrl" = "null" ]; then
-                  echo "Found incomplete upload: $file"
-                  json_file="$file"
-                  break
+            # If specific upload ID provided, use that
+            if [ -n "${{ github.event.inputs.upload_id }}" ]; then
+              upload_id="${{ github.event.inputs.upload_id }}"
+              echo "Looking for upload ID: $upload_id"
+              
+              # Find the specific upload file
+              for file in public/data/uploads/*.json; do
+                if [ -f "$file" ]; then
+                  file_upload_id=$(jq -r .uploadId "$file" 2>/dev/null || echo "null")
+                  if [ "$file_upload_id" = "$upload_id" ]; then
+                    json_file="$file"
+                    echo "Found upload file: $json_file"
+                    break
+                  fi
                 fi
+              done
+              
+              if [ -z "$json_file" ]; then
+                echo "Upload ID $upload_id not found. Exiting."
+                exit 1
               fi
-            done
+            else
+              # No specific upload ID, look for incomplete uploads
+              echo "Looking for incomplete uploads to process..."
+              
+              # Find incomplete uploads (no progress or progress != complete)
+              for file in public/data/uploads/*.json; do
+                if [ -f "$file" ]; then
+                  progress=$(jq -r .progress "$file" 2>/dev/null || echo "null")
+                  hlsUrl=$(jq -r .hlsUrl "$file" 2>/dev/null || echo "null")
+                  
+                  if [ "$progress" != "complete" ] || [ "$hlsUrl" = "null" ]; then
+                    echo "Found incomplete upload: $file"
+                    json_file="$file"
+                    break
+                  fi
+                fi
+              done
+              
+              if [ -z "$json_file" ]; then
+                echo "No incomplete uploads found. Exiting."
+                exit 0
+              fi
+            fi
+          else
+            # Automatic trigger - try to get the latest added/modified JSON file in uploads
+            json_file=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'public/data/uploads/' | tail -n1)
             
+            # If no file was modified in this commit, look for incomplete uploads
             if [ -z "$json_file" ]; then
-              echo "No incomplete uploads found. Exiting."
-              exit 0
+              echo "No upload JSON files were modified in this commit."
+              echo "Looking for incomplete uploads to process..."
+              
+              # Find incomplete uploads (no progress or progress != complete)
+              for file in public/data/uploads/*.json; do
+                if [ -f "$file" ]; then
+                  progress=$(jq -r .progress "$file" 2>/dev/null || echo "null")
+                  hlsUrl=$(jq -r .hlsUrl "$file" 2>/dev/null || echo "null")
+                  
+                  if [ "$progress" != "complete" ] || [ "$hlsUrl" = "null" ]; then
+                    echo "Found incomplete upload: $file"
+                    json_file="$file"
+                    break
+                  fi
+                fi
+              done
+              
+              if [ -z "$json_file" ]; then
+                echo "No incomplete uploads found. Exiting."
+                exit 0
+              fi
             fi
           fi
 
@@ -63,11 +124,16 @@ jobs:
           echo "TOTAL_CHUNKS=$totalChunks" >> $GITHUB_ENV
           echo "EXTENSION=$extension" >> $GITHUB_ENV
 
-          # Check if this upload is already completed
+                    # Check if this upload is already completed
           progress=$(jq -r .progress "$json_file" 2>/dev/null || echo "null")
           existingHlsUrl=$(jq -r .hlsUrl "$json_file" 2>/dev/null || echo "null")
-
-          if [ "$progress" = "complete" ] && [ "$existingHlsUrl" != "null" ]; then
+          
+          # For manual triggers, check if force processing is enabled
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.force_process }}" = "true" ]; then
+            echo "Manual trigger with force processing enabled"
+            echo "Processing upload regardless of completion status..."
+            echo "SKIP_CHUNK_PROCESSING=false" >> $GITHUB_ENV
+          elif [ "$progress" = "complete" ] && [ "$existingHlsUrl" != "null" ]; then
             echo "Upload already completed with HLS URL: $existingHlsUrl"
             echo "Skipping completed upload..."
             echo "SKIP_CHUNK_PROCESSING=true" >> $GITHUB_ENV
