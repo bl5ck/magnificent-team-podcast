@@ -325,26 +325,22 @@ jobs:
             }')
 
           # Check if episode already exists in playlist
-          existingEpisode=$(jq --arg pid "$playlistId" --arg eid "$episodeId" \
-            '(.[] | select(.id == $pid).episodes[] | select(.id == $eid))' \
-            "$PLAYLISTS_FILE" 2>/dev/null || echo "null")
+          echo "Looking for playlist ID: $playlistId"
+          echo "Looking for episode ID: $episodeId"
+          
+          # Check if episode already exists in playlist using a more robust approach
+          episodeExists=$(jq --arg pid "$playlistId" --arg eid "$episodeId" \
+            'any(.[] | select(.id == $pid).episodes[] | .id == $eid)' \
+            "$PLAYLISTS_FILE" 2>/dev/null || echo "false")
 
           echo "Playlist ID: $playlistId"
           echo "Episode ID: $episodeId"
-          echo "Existing episode: $existingEpisode"
+          echo "Episode exists: $episodeExists"
 
           echo "Current playlist content:"
           jq '.' "$PLAYLISTS_FILE" | head -20
 
-          if [ "$existingEpisode" = "null" ]; then
-            echo "Adding new episode to playlist..."
-            # Add episode to playlist
-            tmpfile=$(mktemp)
-            jq --arg pid "$playlistId" --argjson episode "$newEpisode" \
-              '(.[] | select(.id == $pid).episodes) += [$episode]' \
-              "$PLAYLISTS_FILE" > "$tmpfile" && mv "$tmpfile" "$PLAYLISTS_FILE"
-            echo "Episode added successfully"
-          else
+          if [ "$episodeExists" = "true" ]; then
             echo "Episode already exists in playlist, updating with new HLS URL..."
             # Update existing episode with new HLS URL
             tmpfile=$(mktemp)
@@ -352,6 +348,14 @@ jobs:
               '(.[] | select(.id == $pid).episodes[] | select(.id == $eid)) |= (.audioUrl = $audioUrl | .processingStatus = "complete")' \
               "$PLAYLISTS_FILE" > "$tmpfile" && mv "$tmpfile" "$PLAYLISTS_FILE"
             echo "Episode updated successfully"
+          else
+            echo "Adding new episode to playlist..."
+            # Add episode to playlist
+            tmpfile=$(mktemp)
+            jq --arg pid "$playlistId" --argjson episode "$newEpisode" \
+              '(.[] | select(.id == $pid).episodes) += [$episode]' \
+              "$PLAYLISTS_FILE" > "$tmpfile" && mv "$tmpfile" "$PLAYLISTS_FILE"
+            echo "Episode added successfully"
           fi
 
           echo "Updated playlist content:"
