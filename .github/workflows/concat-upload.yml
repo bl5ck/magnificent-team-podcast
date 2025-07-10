@@ -117,7 +117,9 @@ jobs:
 
           if [ "$progress" = "complete" ] && [ "$existingHlsUrl" != "null" ]; then
             echo "Upload already completed with HLS URL: $existingHlsUrl"
-            hlsUrl="$existingHlsUrl"
+            # Replace placeholder with actual cloud name
+            hlsUrl=$(echo "$existingHlsUrl" | sed "s/CLOUDINARY_CLOUD_NAME/${{ secrets.CLOUDINARY_CLOUD_NAME }}/g")
+            echo "Updated HLS URL: $hlsUrl"
           else
             hlsUrl="https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/final/$UPLOAD_ID/playlist.m3u8"
           fi
