@@ -101,6 +101,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CH_TOKEN }}
         run: |
+          echo "Starting playlist update step..."
+          echo "JSON_FILE: $JSON_FILE"
+          echo "UPLOAD_ID: $UPLOAD_ID"
           pip install jq
           PLAYLISTS_FILE="playlists.json"
           if [ ! -f "$PLAYLISTS_FILE" ]; then
@@ -155,6 +158,10 @@ jobs:
             '(.[] | select(.id == $pid).episodes[] | select(.id == $eid))' \
             "$PLAYLISTS_FILE" 2>/dev/null || echo "null")
 
+          echo "Playlist ID: $playlistId"
+          echo "Episode ID: $episodeId"
+          echo "Existing episode: $existingEpisode"
+
           if [ "$existingEpisode" = "null" ]; then
             echo "Adding new episode to playlist..."
             # Add episode to playlist
@@ -162,6 +169,7 @@ jobs:
             jq --arg pid "$playlistId" --argjson episode "$newEpisode" \
               '(.[] | select(.id == $pid).episodes) += [$episode]' \
               "$PLAYLISTS_FILE" > "$tmpfile" && mv "$tmpfile" "$PLAYLISTS_FILE"
+            echo "Episode added successfully"
           else
             echo "Episode already exists in playlist, updating with new HLS URL..."
             # Update existing episode with new HLS URL
@@ -169,17 +177,22 @@ jobs:
             jq --arg pid "$playlistId" --arg eid "$episodeId" --arg audioUrl "$hlsUrl" \
               '(.[] | select(.id == $pid).episodes[] | select(.id == $eid)) |= (.audioUrl = $audioUrl | .processingStatus = "complete")' \
               "$PLAYLISTS_FILE" > "$tmpfile" && mv "$tmpfile" "$PLAYLISTS_FILE"
+            echo "Episode updated successfully"
           fi
 
           contentBase64=$(base64 -w 0 "$PLAYLISTS_FILE")
           api_url="https://api.github.com/repos/bl5ck/magnificent-team-podcast/contents/playlists.json"
+          echo "Getting file SHA from GitHub API..."
           fileSha=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" "$api_url" | jq -r .sha)
+          echo "File SHA: $fileSha"
           payload="{\"message\": \"Add new episode with HLS URL [skip ci]\", \"content\": \"$contentBase64\""
           if [ "$fileSha" != "null" ] && [ -n "$fileSha" ]; then
             payload="$payload, \"sha\": \"$fileSha\""
           fi
           payload="$payload}"
-          curl -X PUT -H "Authorization: Bearer $GITHUB_TOKEN" -H "Content-Type: application/json" -d "$payload" "$api_url"
+          echo "Uploading updated playlists.json to GitHub..."
+          response=$(curl -X PUT -H "Authorization: Bearer $GITHUB_TOKEN" -H "Content-Type: application/json" -d "$payload" "$api_url")
+          echo "GitHub API response: $response"
 
       - name: Update upload JSON with completion status
         if: env.SKIP_CHUNK_PROCESSING != 'true'
