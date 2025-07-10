@@ -29,7 +29,11 @@ jobs:
           cat "$json_file"
           uploadId=$(jq -r .uploadId "$json_file")
           totalChunks=$(jq -r .totalChunks "$json_file")
-          extension=$(jq -r .extension "$json_file")
+          extension=$(jq -r .fileExtension "$json_file")
+          if [ -z "$extension" ] || [ "$extension" = "null" ]; then
+            echo "Extension is missing or null in $json_file. Exiting."
+            exit 1
+          fi
           echo "UPLOAD_ID=$uploadId" >> $GITHUB_ENV
           echo "TOTAL_CHUNKS=$totalChunks" >> $GITHUB_ENV
           echo "EXTENSION=$extension" >> $GITHUB_ENV
