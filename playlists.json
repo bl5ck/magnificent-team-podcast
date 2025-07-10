@@ -52,6 +52,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-Agent2Agent_InteroperabilityforAIApplicationswav-35347244-1750388956864",
+        "title": "Agent2Agent_ Interoperability for AI Applications",
+        "description": "Agent2Agent_ Interoperability for AI Applications",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/Agent2Agent_InteroperabilityforAIApplicationswav-35347244-1750388956864/playlist.m3u8",
+        "publishDate": "2025-07-10",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
