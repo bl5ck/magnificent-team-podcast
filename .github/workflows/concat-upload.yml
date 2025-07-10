@@ -44,13 +44,24 @@ jobs:
             curl -L -o chunk-$i.$EXTENSION "https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/chunks/$UPLOAD_ID-chunk-$i.$EXTENSION"
           done
 
+      - name: List downloaded chunks
+        run: ls -lh chunk-*.$EXTENSION || echo "No chunks downloaded"
+
+      - name: Check for downloaded chunks
+        run: |
+          if ! ls chunk-*.$EXTENSION 1> /dev/null 2>&1; then
+            echo "No audio chunks downloaded. Exiting."
+            exit 1
+          fi
+
       - name: Install FFmpeg
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
       - name: Concatenate with FFmpeg
         run: |
-          for f in chunk-*.$EXTENSION; do echo "file '$PWD/$f'"; done > chunks.txt
-          ffmpeg -f concat -safe 0 -i chunks.txt -c copy output.$EXTENSION
+          for i in $(seq -f "%04g" 0 $(($TOTAL_CHUNKS - 1))); do
+            curl -L -o chunk-$i.$EXTENSION "https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/chunks/$UPLOAD_ID-chunk-$i.$EXTENSION"
+          done
 
       - name: Upload concatenated file to Cloudinary
         env:
