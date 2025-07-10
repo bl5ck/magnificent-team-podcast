@@ -38,17 +38,9 @@ jobs:
           echo "TOTAL_CHUNKS=$totalChunks" >> $GITHUB_ENV
           echo "EXTENSION=$extension" >> $GITHUB_ENV
 
-          # Check if upload is already completed
-          progress=$(jq -r .progress "$json_file" 2>/dev/null || echo "null")
-          existingHlsUrl=$(jq -r .hlsUrl "$json_file" 2>/dev/null || echo "null")
-
-          if [ "$progress" = "complete" ] && [ "$existingHlsUrl" != "null" ]; then
-            echo "Upload already completed with HLS URL: $existingHlsUrl"
-            echo "SKIP_CHUNK_PROCESSING=true" >> $GITHUB_ENV
-          else
-            echo "Processing new upload..."
-            echo "SKIP_CHUNK_PROCESSING=false" >> $GITHUB_ENV
-          fi
+          # Always process new uploads - don't skip based on existing metadata
+          echo "Processing new upload..."
+          echo "SKIP_CHUNK_PROCESSING=false" >> $GITHUB_ENV
 
       - name: Download audio chunks from Cloudinary
         if: env.SKIP_CHUNK_PROCESSING != 'true'
@@ -114,18 +106,8 @@ jobs:
             exit 1
           fi
 
-          # Check if upload JSON already has progress and HLS URL
-          progress=$(jq -r .progress "$JSON_FILE" 2>/dev/null || echo "null")
-          existingHlsUrl=$(jq -r .hlsUrl "$JSON_FILE" 2>/dev/null || echo "null")
-
-          if [ "$progress" = "complete" ] && [ "$existingHlsUrl" != "null" ]; then
-            echo "Upload already completed with HLS URL: $existingHlsUrl"
-            # Replace placeholder with actual cloud name
-            hlsUrl=$(echo "$existingHlsUrl" | sed "s/CLOUDINARY_CLOUD_NAME/${{ secrets.CLOUDINARY_CLOUD_NAME }}/g")
-            echo "Updated HLS URL: $hlsUrl"
-          else
-            hlsUrl="https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/final/$UPLOAD_ID/playlist.m3u8"
-          fi
+          # Always generate new HLS URL for the upload
+          hlsUrl="https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/final/$UPLOAD_ID/playlist.m3u8"
 
           # Make hlsUrl available as environment variable
           echo "HLS_URL=$hlsUrl" >> $GITHUB_ENV
