@@ -45,9 +45,66 @@ jobs:
       - name: Download audio chunks from Cloudinary
         if: env.SKIP_CHUNK_PROCESSING != 'true'
         run: |
+          echo "Starting chunk download with retry logic..."
+          echo "UPLOAD_ID: $UPLOAD_ID"
+          echo "TOTAL_CHUNKS: $TOTAL_CHUNKS"
+          echo "EXTENSION: $EXTENSION"
+
           for i in $(seq -f "%04g" 0 $(($TOTAL_CHUNKS - 1))); do
-            curl -L -o chunk-$i.$EXTENSION "https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/chunks/$UPLOAD_ID-chunk-$i.$EXTENSION"
+            chunk_url="https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/chunks/$UPLOAD_ID-chunk-$i.$EXTENSION"
+            echo "Downloading chunk $i from: $chunk_url"
+            
+            # Retry logic for each chunk
+            max_retries=5
+            retry_count=0
+            
+            while [ $retry_count -lt $max_retries ]; do
+              echo "Attempt $((retry_count + 1)) for chunk $i..."
+              
+              # Download with verbose output and timeout
+              curl -L -v --connect-timeout 30 --max-time 60 -o chunk-$i.$EXTENSION "$chunk_url" 2>&1 | tee curl_log_$i.txt
+              
+              # Check if file was downloaded successfully
+              if [ -s "chunk-$i.$EXTENSION" ]; then
+                echo "✅ Chunk $i downloaded successfully ($(stat -c%s chunk-$i.$EXTENSION) bytes)"
+                break
+              else
+                echo "❌ Chunk $i download failed (0 bytes)"
+                rm -f chunk-$i.$EXTENSION
+                retry_count=$((retry_count + 1))
+                
+                if [ $retry_count -lt $max_retries ]; then
+                  echo "Waiting 10 seconds before retry..."
+                  sleep 10
+                else
+                  echo "❌ Failed to download chunk $i after $max_retries attempts"
+                  echo "Curl log for chunk $i:"
+                  cat curl_log_$i.txt
+                  exit 1
+                fi
+              fi
+            done
           done
+
+          echo "All chunks downloaded successfully!"
+
+      - name: Verify chunks exist on Cloudinary
+        if: env.SKIP_CHUNK_PROCESSING != 'true'
+        env:
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        run: |
+          echo "Verifying chunks exist on Cloudinary..."
+          pip install cloudinary
+
+          for i in $(seq -f "%04g" 0 $(($TOTAL_CHUNKS - 1))); do
+            chunk_public_id="podcast/chunks/$UPLOAD_ID-chunk-$i"
+            echo "Checking chunk $i: $chunk_public_id"
+            
+            python -c "import cloudinary; import cloudinary.api; cloudinary.config(cloud_name='${{ secrets.CLOUDINARY_CLOUD_NAME }}', api_key='${{ secrets.CLOUDINARY_API_KEY }}', api_secret='${{ secrets.CLOUDINARY_API_SECRET }}'); result = cloudinary.api.resource('$chunk_public_id', resource_type='raw'); print(f'✅ Chunk {i} exists: {result[\"public_id\"]} ({result[\"bytes\"]} bytes)')" || (echo "❌ Chunk $i not found" && exit 1)
+          done
+          echo "All chunks verified on Cloudinary!"
 
       - name: List and verify chunk files
         if: env.SKIP_CHUNK_PROCESSING != 'true'
