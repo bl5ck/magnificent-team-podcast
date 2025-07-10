@@ -14,28 +14,51 @@ jobs:
 
       - name: Read upload info JSON
         id: uploadinfo
-        run: |
+                run: |
           # Try to get the latest added/modified JSON file in uploads
           json_file=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'public/data/uploads/' | tail -n1)
-
-          # If no file was modified in this commit, exit
+          
+          # If no file was modified in this commit, look for incomplete uploads
           if [ -z "$json_file" ]; then
-            echo "No upload JSON files were modified in this commit. Exiting."
-            exit 0
+            echo "No upload JSON files were modified in this commit."
+            echo "Looking for incomplete uploads to process..."
+            
+            # Find incomplete uploads (no progress or progress != complete)
+            for file in public/data/uploads/*.json; do
+              if [ -f "$file" ]; then
+                progress=$(jq -r .progress "$file" 2>/dev/null || echo "null")
+                hlsUrl=$(jq -r .hlsUrl "$file" 2>/dev/null || echo "null")
+                
+                if [ "$progress" != "complete" ] || [ "$hlsUrl" = "null" ]; then
+                  echo "Found incomplete upload: $file"
+                  json_file="$file"
+                  break
+                fi
+              fi
+            done
+            
+            if [ -z "$json_file" ]; then
+              echo "No incomplete uploads found. Exiting."
+              exit 0
+            fi
           fi
+          
           if [ ! -f "$json_file" ]; then
             echo "No upload info JSON file found. Exiting."
             exit 1
           fi
+          
           echo "JSON_FILE=$json_file" >> $GITHUB_ENV
           cat "$json_file"
           uploadId=$(jq -r .uploadId "$json_file")
           totalChunks=$(jq -r .totalChunks "$json_file")
           extension=$(jq -r .fileExtension "$json_file")
+          
           if [ -z "$extension" ] || [ "$extension" = "null" ]; then
             echo "Extension is missing or null in $json_file. Exiting."
             exit 1
           fi
+          
           echo "UPLOAD_ID=$uploadId" >> $GITHUB_ENV
           echo "TOTAL_CHUNKS=$totalChunks" >> $GITHUB_ENV
           echo "EXTENSION=$extension" >> $GITHUB_ENV
@@ -43,13 +66,13 @@ jobs:
           # Check if this upload is already completed
           progress=$(jq -r .progress "$json_file" 2>/dev/null || echo "null")
           existingHlsUrl=$(jq -r .hlsUrl "$json_file" 2>/dev/null || echo "null")
-
+          
           if [ "$progress" = "complete" ] && [ "$existingHlsUrl" != "null" ]; then
             echo "Upload already completed with HLS URL: $existingHlsUrl"
-            echo "This is an old upload, skipping processing..."
+            echo "Skipping completed upload..."
             echo "SKIP_CHUNK_PROCESSING=true" >> $GITHUB_ENV
           else
-            echo "Processing new upload..."
+            echo "Processing incomplete upload..."
             echo "SKIP_CHUNK_PROCESSING=false" >> $GITHUB_ENV
           fi
 
