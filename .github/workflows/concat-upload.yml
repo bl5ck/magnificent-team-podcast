@@ -59,14 +59,21 @@ jobs:
         run: |
           cat chunk-*.$EXTENSION > full_upload.$EXTENSION
 
-      - name: Upload concatenated file to Cloudinary
+      - name: Install FFmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Convert concatenated file to MP3
+        run: |
+          ffmpeg -y -i full_upload.$EXTENSION -codec:a libmp3lame -b:a 192k output.mp3
+
+      - name: Upload MP3 file to Cloudinary
         env:
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
         run: |
           pip install cloudinary
-          python -c "import cloudinary; import cloudinary.uploader; cloudinary.config(cloud_name='${{ secrets.CLOUDINARY_CLOUD_NAME }}', api_key='${{ secrets.CLOUDINARY_API_KEY }}', api_secret='${{ secrets.CLOUDINARY_API_SECRET }}'); result = cloudinary.uploader.upload_large('full_upload.${EXTENSION}', resource_type='raw', public_id='podcast/final/${UPLOAD_ID}'); print(result)"
+          python -c "import cloudinary; import cloudinary.uploader; cloudinary.config(cloud_name='${{ secrets.CLOUDINARY_CLOUD_NAME }}', api_key='${{ secrets.CLOUDINARY_API_KEY }}', api_secret='${{ secrets.CLOUDINARY_API_SECRET }}'); result = cloudinary.uploader.upload_large('output.mp3', resource_type='raw', public_id='podcast/final/${UPLOAD_ID}'); print(result)"
 
       - name: Update playlists.json with processingStatus
         env:
@@ -87,7 +94,7 @@ jobs:
           playlistId=$(jq -r .playlistId "$JSON_FILE")
           episodeId=$(jq -r .episodeId "$JSON_FILE")
           # Get Cloudinary URL (from previous upload step output or reconstruct)
-          audioUrl="https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/final/$UPLOAD_ID.$EXTENSION"
+          audioUrl="https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/final/$UPLOAD_ID.mp3"
           # Update processingStatus and audioUrl in playlists.json
           tmpfile=$(mktemp)
           jq --arg pid "$playlistId" --arg eid "$episodeId" --arg url "$audioUrl" \
@@ -106,4 +113,4 @@ jobs:
           curl -X PUT -H "Authorization: Bearer $GITHUB_TOKEN" -H "Content-Type: application/json" -d "$payload" "$api_url"
 
       - name: Cleanup
-        run: rm -f chunk-*.$EXTENSION full_upload.$EXTENSION output.$EXTENSION
+        run: rm -f chunk-*.$EXTENSION full_upload.$EXTENSION output.mp3 output.$EXTENSION
