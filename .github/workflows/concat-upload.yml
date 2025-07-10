@@ -110,5 +110,17 @@ jobs:
           payload="$payload}"
           curl -X PUT -H "Authorization: Bearer $GITHUB_TOKEN" -H "Content-Type: application/json" -d "$payload" "$api_url"
 
+      - name: Delete chunk files from Cloudinary
+        env:
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        run: |
+          pip install cloudinary
+          for i in $(seq -f "%04g" 0 $(($TOTAL_CHUNKS - 1))); do
+            chunk_name="podcast/chunks/${UPLOAD_ID}-chunk-$i.${EXTENSION}"
+            python -c "import cloudinary; import cloudinary.uploader; cloudinary.config(cloud_name='${{ secrets.CLOUDINARY_CLOUD_NAME }}', api_key='${{ secrets.CLOUDINARY_API_KEY }}', api_secret='${{ secrets.CLOUDINARY_API_SECRET }}'); cloudinary.uploader.destroy('$chunk_name', resource_type='raw')"
+          done
+
       - name: Cleanup
         run: rm -f chunk-*.$EXTENSION full_upload.$EXTENSION output.mp3 output.$EXTENSION && rm -rf hls
