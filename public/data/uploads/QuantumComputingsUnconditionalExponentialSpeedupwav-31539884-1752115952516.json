@@ -16,5 +16,7 @@
   "episodeTitle": "Quantum Computing's Unconditional Exponential Speedup",
   "episodeDescription": "Quantum Computing's Unconditional Exponential Speedup",
   "playlistName": "AI Daily",
-  "processingStatus": "inProgress"
+  "processingStatus": "inProgress",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/QuantumComputingsUnconditionalExponentialSpeedupwav-31539884-1752115952516/playlist.m3u8"
 }
