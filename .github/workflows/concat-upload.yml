@@ -373,14 +373,14 @@ jobs:
 
                     # Check if the API call was successful
           echo "Checking API response for success..."
-          content_sha=$(echo "$response" | jq -r '.content.sha // "NOT_FOUND"')
-          echo "Content SHA: $content_sha"
+          commit_sha=$(echo "$response" | jq -r '.commit.sha // "NOT_FOUND"')
+          echo "Commit SHA: $commit_sha"
 
-          if [ "$content_sha" != "NOT_FOUND" ] && [ "$content_sha" != "null" ]; then
+          if [ "$commit_sha" != "NOT_FOUND" ] && [ "$commit_sha" != "null" ]; then
             echo "✅ Playlist updated successfully!"
-            echo "New SHA: $content_sha"
-            commit_sha=$(echo "$response" | jq -r '.commit.sha // "NOT_FOUND"')
             echo "Commit SHA: $commit_sha"
+            content_sha=$(echo "$response" | jq -r '.content.sha // "NOT_FOUND"')
+            echo "Content SHA: $content_sha"
           else
             echo "❌ Failed to update playlist"
             echo "Error response: $response"
