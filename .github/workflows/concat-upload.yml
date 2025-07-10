@@ -25,7 +25,7 @@ jobs:
 
       - name: Read upload info JSON
         id: uploadinfo
-                run: |
+        run: |
           # Check if this is a manual trigger
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "Manual workflow trigger detected"
@@ -127,7 +127,7 @@ jobs:
                     # Check if this upload is already completed
           progress=$(jq -r .progress "$json_file" 2>/dev/null || echo "null")
           existingHlsUrl=$(jq -r .hlsUrl "$json_file" 2>/dev/null || echo "null")
-          
+
           # For manual triggers, check if force processing is enabled
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.force_process }}" = "true" ]; then
             echo "Manual trigger with force processing enabled"
