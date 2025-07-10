@@ -60,8 +60,9 @@ jobs:
       - name: Concatenate with FFmpeg
         run: |
           for i in $(seq -f "%04g" 0 $(($TOTAL_CHUNKS - 1))); do
-            curl -L -o chunk-$i.$EXTENSION "https://res.cloudinary.com/${{ secrets.CLOUDINARY_CLOUD_NAME }}/raw/upload/podcast/chunks/$UPLOAD_ID-chunk-$i.$EXTENSION"
-          done
+            echo "file '$PWD/chunk-$i.$EXTENSION'"
+          done > chunks.txt
+          ffmpeg -f concat -safe 0 -i chunks.txt -c copy output.$EXTENSION
 
       - name: Upload concatenated file to Cloudinary
         env:
