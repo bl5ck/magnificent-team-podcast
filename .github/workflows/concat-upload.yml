@@ -15,7 +15,16 @@ jobs:
       - name: Read upload info JSON
         id: uploadinfo
         run: |
+          # Try to get the latest added/modified JSON file in uploads
           json_file=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep 'public/data/uploads/' | tail -n1)
+          # Fallback: list the most recent file if above fails
+          if [ -z "$json_file" ]; then
+            json_file=$(ls -t public/data/uploads/*.json | head -n1)
+          fi
+          if [ ! -f "$json_file" ]; then
+            echo "No upload info JSON file found. Exiting."
+            exit 1
+          fi
           echo "JSON_FILE=$json_file" >> $GITHUB_ENV
           cat "$json_file"
           uploadId=$(jq -r .uploadId "$json_file")
