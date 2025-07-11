@@ -15,5 +15,7 @@
   "episodeId": "episode-ReinforcementLearningfromHumanFeedbackExplainedwav-37482284-1752200764543",
   "episodeTitle": "Reinforcement Learning from Human Feedback Explained",
   "episodeDescription": "Reinforcement Learning from Human Feedback Explained",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/ReinforcementLearningfromHumanFeedbackExplainedwav-37482284-1752200764543/playlist.m3u8"
 }
