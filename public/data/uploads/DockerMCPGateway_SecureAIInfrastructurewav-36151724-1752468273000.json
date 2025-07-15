@@ -15,5 +15,7 @@
   "episodeId": "episode-DockerMCPGateway_SecureAIInfrastructurewav-36151724-1752468273000",
   "episodeTitle": "Docker MCP Gateway_Secure AI Infrastructure",
   "episodeDescription": "Docker MCP Gateway_Secure AI Infrastructure",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/DockerMCPGateway_SecureAIInfrastructurewav-36151724-1752468273000/playlist.m3u8"
 }
