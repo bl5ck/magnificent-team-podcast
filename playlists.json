@@ -112,6 +112,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-DockerMCPGateway_SecureAIInfrastructurewav-36151724-1752468273000",
+        "title": "Docker MCP Gateway_Secure AI Infrastructure",
+        "description": "Docker MCP Gateway_Secure AI Infrastructure",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/DockerMCPGateway_SecureAIInfrastructurewav-36151724-1752468273000/playlist.m3u8",
+        "publishDate": "2025-07-15",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
