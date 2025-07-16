@@ -122,6 +122,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-VietnameseVoiceCommandRecognitionwithSVMandCNNwav-52740524-1752644629000",
+        "title": "Vietnamese Voice Command Recognition with SVM and CNN",
+        "description": "Vietnamese Voice Command Recognition with SVM and CNN",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/VietnameseVoiceCommandRecognitionwithSVMandCNNwav-52740524-1752644629000/playlist.m3u8",
+        "publishDate": "2025-07-16",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
