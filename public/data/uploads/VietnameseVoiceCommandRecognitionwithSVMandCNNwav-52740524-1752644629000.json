@@ -15,5 +15,7 @@
   "episodeId": "episode-VietnameseVoiceCommandRecognitionwithSVMandCNNwav-52740524-1752644629000",
   "episodeTitle": "Vietnamese Voice Command Recognition with SVM and CNN",
   "episodeDescription": "Vietnamese Voice Command Recognition with SVM and CNN",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/VietnameseVoiceCommandRecognitionwithSVMandCNNwav-52740524-1752644629000/playlist.m3u8"
 }
