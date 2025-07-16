@@ -1,0 +1,57 @@
+.audio-player-example {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+.example-container h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.example-container p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.example-container ul {
+  margin-bottom: 30px;
+  padding-left: 20px;
+}
+
+.example-container li {
+  color: #555;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .audio-player-example {
+    padding: 20px 10px;
+  }
+  
+  .example-container {
+    padding: 30px 20px;
+  }
+  
+  .example-container h1 {
+    font-size: 24px;
+  }
+}
