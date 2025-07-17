@@ -132,6 +132,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-GoogleDeepMindsGenAIProcessorsforEfficientAIWorkflowswav-37850924-1752749594000",
+        "title": "Google DeepMind's GenAI Processors for Efficient AI Workflows",
+        "description": "Google DeepMind's GenAI Processors for Efficient AI Workflows",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/GoogleDeepMindsGenAIProcessorsforEfficientAIWorkflowswav-37850924-1752749594000/playlist.m3u8",
+        "publishDate": "2025-07-17",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
