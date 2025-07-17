@@ -15,5 +15,7 @@
   "episodeId": "episode-AWSSummitKeynote_TheAgent-DrivenAIErawav-59888684-1752750347000",
   "episodeTitle": "AWS Summit New York City 2025 - Keynote",
   "episodeDescription": "AWS Summit New York City 2025 - Keynote with Swami Sivasubramanian channel, focuses on the transformative impact of Artificial Intelligence (AI) and AI agents on software development and business operations. It highlights Amazon's commitment to democratizing AI for organizations of all sizes, showcasing new capabilities within Amazon Bedrock for building and scaling AI applications and the expansion of Amazon Nova, a family of foundation models, for enhanced customization and agent development. The keynote also introduces Agent Core, a suite of services designed to simplify the deployment and operation of AI agents securely at scale, and touches upon AWS Marketplace as a centralized hub for AI agents and tools. Additionally, the discussion covers innovations in data storage with S3 Vectors, pre-built agent solutions for software development like Cairo and Amazon Q Developer, and migration tools such as AWS Transform, all supported by AWS's investments in professional services and AI education initiatives.",
-  "playlistName": "Event Recaps - 2025"
+  "playlistName": "Event Recaps - 2025",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/AWSSummitKeynote_TheAgent-DrivenAIErawav-59888684-1752750347000/playlist.m3u8"
 }
