@@ -15,5 +15,7 @@
   "episodeId": "episode-ChinasRoboticAscent_UBTechsAutonomousHumanoidRobotwav-23904044-1752912500911",
   "episodeTitle": "UBTech's new Walker S2 humanoid robot capable of autonomous battery swapping",
   "episodeDescription": "UBTech's new Walker S2 humanoid robot capable of autonomous battery swapping. This innovation addresses a critical challenge in robotics by enabling continuous operation with minimal human intervention, making 24/7 deployment feasible in industrial settings. The sources emphasize that this development is not isolated but rather a direct result of China's deliberate national robotics strategy, which has propelled the country to a leading position in global robot density through consistent government support and a thriving ecosystem of robotics companies. Finally, the articles touch upon the critical importance of achieving mass production to ensure the economic viability of humanoid robots, a hurdle that Chinese manufacturers are actively pursuing, drawing parallels with past successes in scaling production in other technology sectors.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/ChinasRoboticAscent_UBTechsAutonomousHumanoidRobotwav-23904044-1752912500911/playlist.m3u8"
 }
