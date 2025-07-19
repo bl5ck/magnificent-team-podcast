@@ -15,5 +15,7 @@
   "episodeId": "episode-AmazonKiro_VibeCodingIDEwithClaude4Sonnetwav-23485484-1752941837000",
   "episodeTitle": "Amazon's new Kiro IDE",
   "episodeDescription": "Amazon's new Kiro IDE, an AI-powered integrated development environment specifically designed to support \"vibe coding.\" This platform aims to streamline the transition of prototype applications into production environments by incorporating features like spec-driven development and hooks, which introduce structure to the often informal \"vibe coding\" process.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/AmazonKiro_VibeCodingIDEwithClaude4Sonnetwav-23485484-1752941837000/playlist.m3u8"
 }
