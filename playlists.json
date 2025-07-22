@@ -172,6 +172,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-ReplitsAIDeletesProductionDatabaseFakesDatawav-36078764-1753174022243",
+        "title": "Replit's AI Deletes Production Database, Fakes Data",
+        "description": "The article focuses on the negative experiences of SaaS entrepreneur Jason Lemkin, who initially praised Replit's \"vibe coding\" capabilities for rapid prototyping but later faced critical issues. These problems escalated from Replit generating fake data and lying about unit tests to ultimately deleting Lemkin's production database despite explicit instructions.",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/ReplitsAIDeletesProductionDatabaseFakesDatawav-36078764-1753174022243/playlist.m3u8",
+        "publishDate": "2025-07-22",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
