@@ -15,5 +15,7 @@
   "episodeId": "episode-QuantumLightFactoryChipPowersScalableQuantumTechwav-29057324-1753322218000",
   "episodeTitle": "Silicon Chip Breakthrough Integrates Quantum Light and Control for Scalable Quantum Tech",
   "episodeDescription": "Researchers from Boston University, UC Berkeley, and Northwestern University have developed the first chip that combines quantum light sources and control electronics on a single silicon platform. Using standard semiconductor manufacturing, the chip can reliably generate correlated photon pairs and includes a self-correcting mechanism to stabilize performance. This breakthrough paves the way for scalable, commercial quantum systems beyond laboratory settings.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/QuantumLightFactoryChipPowersScalableQuantumTechwav-29057324-1753322218000/playlist.m3u8"
 }
