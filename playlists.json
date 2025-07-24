@@ -192,6 +192,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-QualityEngineering_SafeguardingMedicalAIDecisionswav-35249324-1753359018174",
+        "title": "When AI Enters The Hospital: The Role Of Quality Engineering In Safeguarding Medical Decisions",
+        "description": "\"When AI Enters The Hospital: The Role Of Quality Engineering In Safeguarding Medical Decisions,\" published by Forbes Technology Council and authored by Gopinath Kathiresan.",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/QualityEngineering_SafeguardingMedicalAIDecisionswav-35249324-1753359018174/playlist.m3u8",
+        "publishDate": "2025-07-24",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
