@@ -15,5 +15,7 @@
   "episodeId": "episode-AICodingChallengeRevealsLowScoreswav-25908524-1753404823000",
   "episodeTitle": "AI Coding Challenge Reveals Low Scores",
   "episodeDescription": "The K Prize is a new AI coding competition created by Andy Konwinski to provide a clean benchmark, free from data contamination. Its first results revealed a surprisingly low top score of 7.5%, showing a clear gap between AI’s real coding ability and industry hype. Konwinski has offered a large reward for any open-source model that scores above 90%, emphasizing the need for tougher, unbiased tests.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/AICodingChallengeRevealsLowScoreswav-25908524-1753404823000/playlist.m3u8"
 }
