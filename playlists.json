@@ -212,6 +212,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-1753415346003937930-294348967374921mp3-14106861-1753415489143",
+        "title": "F5-TTS: The Fairytaler That Speaks Like You",
+        "description": "Welcome to Synthetic Voices, the show where we explore the future of speech, sound, and the soul of machines. I’m your host, Steve, and today we’re diving into a voice synthesis breakthrough that’s turning heads in the AI world—F5-TTS.\n\nIt’s not just another text-to-speech model. It’s a storyteller. A mimic. A fairytaler that fakes fluent and faithful speech—with just a few seconds of your voice.\n\nLet’s explore how it works, why it matters, and what it means for the future of communication.",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/1753415346003937930-294348967374921mp3-14106861-1753415489143/playlist.m3u8",
+        "publishDate": "2025-07-25",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
