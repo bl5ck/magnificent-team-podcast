@@ -15,5 +15,7 @@
   "episodeId": "episode-BrainGPT_ConvertingThoughttoTextwav-21617324-1753491286000",
   "episodeTitle": "BrainGPT Translates Thoughts into Text Using Non-Invasive EEG",
   "episodeDescription": "Researchers at the University of Technology Sydney have developed BrainGPT, a non-invasive system that decodes brainwaves into readable text using an EEG cap—offering new hope for those with locked-in syndrome and marking a major step forward in mind-to-text communication.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/BrainGPT_ConvertingThoughttoTextwav-21617324-1753491286000/playlist.m3u8"
 }
