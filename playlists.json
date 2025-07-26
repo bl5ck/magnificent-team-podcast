@@ -12,7 +12,7 @@
         "publishDate": "2025-07-10",
         "processingStatus": "complete",
         "thumbnailUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&h=300&fit=crop",
-        "duration": "00:00"
+        "duration": "23:56"
       },
       {
         "id": "episode-AIforDesignSystemsandPerformancewav-74156204-1751271674729",
@@ -22,7 +22,7 @@
         "publishDate": "2025-01-01",
         "processingStatus": "complete",
         "thumbnailUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=300&h=300&fit=crop",
-        "duration": "00:00"
+        "duration": "25:44"
       },
       {
         "id": "episode-GoogleI_O2025_All100Announcementswav-61528364-1750329857816",
@@ -32,7 +32,7 @@
         "publishDate": "2025-07-10",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "21:21"
       },
       {
         "id": "episode-AWSSummitKeynote_TheAgent-DrivenAIErawav-59888684-1752750347000",
@@ -42,10 +42,10 @@
         "publishDate": "2025-07-17",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "20:47"
       }
     ],
-    "totalDuration": "0m",
+    "totalDuration": "1h 31m",
     "id": "playlist-1751274956587"
   },
   {
@@ -61,7 +61,7 @@
         "publishDate": "2025-07-10",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "10:57"
       },
       {
         "id": "episode-Agent2Agent_InteroperabilityforAIApplicationswav-35347244-1750388956864",
@@ -71,7 +71,7 @@
         "publishDate": "2025-07-10",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "12:16"
       },
       {
         "id": "episode-gemini-cli-your-open-source-ai-agentwav-34830764-1751338703671",
@@ -81,7 +81,7 @@
         "publishDate": "2025-07-10",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "12:05"
       },
       {
         "id": "episode-LangGraph_BuildAdaptableAIAgentswav-15949484-1751427171488",
@@ -91,7 +91,7 @@
         "publishDate": "2025-07-10",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "5:32"
       },
       {
         "id": "episode-12-FactorAgents_ReliableLLMApplicationPatternswav-58055084-1752038235729",
@@ -101,7 +101,7 @@
         "publishDate": "2025-07-10",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "20:09"
       },
       {
         "id": "episode-CursorWebApp_MobileCodeFixesandRefactoringwav-35545004-1752140017361",
@@ -111,7 +111,7 @@
         "publishDate": "2025-07-10",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "12:20"
       },
       {
         "id": "episode-ReinforcementLearningfromHumanFeedbackExplainedwav-37482284-1752200764543",
@@ -121,7 +121,7 @@
         "publishDate": "2025-07-11",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "13:00"
       },
       {
         "id": "episode-DockerMCPGateway_SecureAIInfrastructurewav-36151724-1752468273000",
@@ -131,7 +131,7 @@
         "publishDate": "2025-07-15",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "12:33"
       },
       {
         "id": "episode-VietnameseVoiceCommandRecognitionwithSVMandCNNwav-52740524-1752644629000",
@@ -141,7 +141,7 @@
         "publishDate": "2025-07-16",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "18:18"
       },
       {
         "id": "episode-GoogleDeepMindsGenAIProcessorsforEfficientAIWorkflowswav-37850924-1752749594000",
@@ -151,7 +151,7 @@
         "publishDate": "2025-07-17",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "13:08"
       },
       {
         "id": "episode-ChinasRoboticAscent_UBTechsAutonomousHumanoidRobotwav-23904044-1752912500911",
@@ -161,7 +161,7 @@
         "publishDate": "2025-07-19",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "8:18"
       },
       {
         "id": "episode-AmazonKiro_VibeCodingIDEwithClaude4Sonnetwav-23485484-1752941837000",
@@ -171,7 +171,7 @@
         "publishDate": "2025-07-19",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "8:09"
       },
       {
         "id": "episode-ReplitsAIDeletesProductionDatabaseFakesDatawav-36078764-1753174022243",
@@ -181,7 +181,7 @@
         "publishDate": "2025-07-22",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "12:31"
       },
       {
         "id": "episode-QuantumLightFactoryChipPowersScalableQuantumTechwav-29057324-1753322218000",
@@ -191,7 +191,7 @@
         "publishDate": "2025-07-24",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "10:05"
       },
       {
         "id": "episode-QualityEngineering_SafeguardingMedicalAIDecisionswav-35249324-1753359018174",
@@ -201,7 +201,7 @@
         "publishDate": "2025-07-24",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "12:14"
       },
       {
         "id": "episode-AICodingChallengeRevealsLowScoreswav-25908524-1753404823000",
@@ -211,7 +211,7 @@
         "publishDate": "2025-07-25",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "8:59"
       },
       {
         "id": "episode-1753415346003937930-294348967374921mp3-14106861-1753415489143",
@@ -221,7 +221,7 @@
         "publishDate": "2025-07-25",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "14:41"
       },
       {
         "id": "episode-MCPServers_AI-PoweredUIDevelopmentwithShadCNandTweakCNwav-43628204-1753490969000",
@@ -231,7 +231,7 @@
         "publishDate": "2025-07-26",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "15:08"
       },
       {
         "id": "episode-BrainGPT_ConvertingThoughttoTextwav-21617324-1753491286000",
@@ -241,10 +241,10 @@
         "publishDate": "2025-07-26",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "7:30"
       }
     ],
-    "totalDuration": "0m",
+    "totalDuration": "3h 47m",
     "id": "playlist-1751338976547"
   }
 ]
