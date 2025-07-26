@@ -15,5 +15,7 @@
   "episodeId": "episode-Bugbot_AIsAnswertoCodeQualityandDebuggingwav-28295084-1753521465000",
   "episodeTitle": "Cursor Launches Bugbot to Catch AI Coding Errors Before They Break Your Code",
   "episodeDescription": "Anysphere introduces Bugbot, a $40/month add-on for Cursor that automatically flags logic bugs, security issues, and other hard-to-spot errors—especially in AI-generated code. As AI coding tools become faster and more common, Bugbot helps developers maintain quality and stability at scale.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/Bugbot_AIsAnswertoCodeQualityandDebuggingwav-28295084-1753521465000/playlist.m3u8"
 }
