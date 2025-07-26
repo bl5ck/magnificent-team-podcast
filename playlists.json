@@ -232,6 +232,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-BrainGPT_ConvertingThoughttoTextwav-21617324-1753491286000",
+        "title": "BrainGPT Translates Thoughts into Text Using Non-Invasive EEG",
+        "description": "Researchers at the University of Technology Sydney have developed BrainGPT, a non-invasive system that decodes brainwaves into readable text using an EEG cap—offering new hope for those with locked-in syndrome and marking a major step forward in mind-to-text communication.",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/BrainGPT_ConvertingThoughttoTextwav-21617324-1753491286000/playlist.m3u8",
+        "publishDate": "2025-07-26",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "0m",
