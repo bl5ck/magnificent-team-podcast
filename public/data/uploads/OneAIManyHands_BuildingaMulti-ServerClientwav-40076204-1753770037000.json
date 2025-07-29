@@ -15,5 +15,7 @@
   "episodeId": "episode-OneAIManyHands_BuildingaMulti-ServerClientwav-40076204-1753770037000",
   "episodeTitle": "\"One AI, Many Hands: Unifying Tools with the Multi-Server MCP Client\"",
   "episodeDescription": "In the podcast episode \"One AI, Many Hands: Building the Multi-Server MCP Client,\" the speakers explore a groundbreaking architecture for AI tool integration using the Model Context Protocol (MCP). Rather than relying on monolithic, single-skill AI systems, MCP introduces a modular design where micro-servers, each handling a specialized task such as web scraping, document parsing, or database access, can work independently yet communicate through a unified standard. This creates a more flexible and maintainable ecosystem, where tools can be swapped or upgraded without disrupting the whole system.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/OneAIManyHands_BuildingaMulti-ServerClientwav-40076204-1753770037000/playlist.m3u8"
 }
