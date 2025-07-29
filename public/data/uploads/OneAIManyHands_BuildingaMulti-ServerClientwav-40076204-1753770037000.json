@@ -1,0 +1,19 @@
+{
+  "uploadId": "OneAIManyHands_BuildingaMulti-ServerClientwav-40076204-1753770037000",
+  "fileName": "One AI, Many Hands_ Building a Multi-Server Client.wav",
+  "totalChunks": 10,
+  "metadata": {
+    "title": "\"One AI, Many Hands: Unifying Tools with the Multi-Server MCP Client\"",
+    "description": "In the podcast episode \"One AI, Many Hands: Building the Multi-Server MCP Client,\" the speakers explore a groundbreaking architecture for AI tool integration using the Model Context Protocol (MCP). Rather than relying on monolithic, single-skill AI systems, MCP introduces a modular design where micro-servers, each handling a specialized task such as web scraping, document parsing, or database access, can work independently yet communicate through a unified standard. This creates a more flexible and maintainable ecosystem, where tools can be swapped or upgraded without disrupting the whole system.",
+    "creator": "Podcast",
+    "playlistName": "AI Daily",
+    "playlistId": "playlist-1751338976547",
+    "episodeId": "episode-OneAIManyHands_BuildingaMulti-ServerClientwav-40076204-1753770037000"
+  },
+  "fileExtension": "wav",
+  "playlistId": "playlist-1751338976547",
+  "episodeId": "episode-OneAIManyHands_BuildingaMulti-ServerClientwav-40076204-1753770037000",
+  "episodeTitle": "\"One AI, Many Hands: Unifying Tools with the Multi-Server MCP Client\"",
+  "episodeDescription": "In the podcast episode \"One AI, Many Hands: Building the Multi-Server MCP Client,\" the speakers explore a groundbreaking architecture for AI tool integration using the Model Context Protocol (MCP). Rather than relying on monolithic, single-skill AI systems, MCP introduces a modular design where micro-servers, each handling a specialized task such as web scraping, document parsing, or database access, can work independently yet communicate through a unified standard. This creates a more flexible and maintainable ecosystem, where tools can be swapped or upgraded without disrupting the whole system.",
+  "playlistName": "AI Daily"
+}
