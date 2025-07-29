@@ -15,5 +15,7 @@
   "episodeId": "episode-AIDesignsBetterAI_TheASIARCBreakthroughwav-47654444-1753782140444",
   "episodeTitle": "AI Designs Better AI: The ASI ARC Breakthrough",
   "episodeDescription": " ASI ARC, an AI system capable of autonomously designing superior AI models. This system aims to overcome the bottleneck of human-limited innovation in AI development by utilizing a closed evolutionary loop involving a researcher, engineer, and analyst component. The video details how ASI ARC identifies promising designs through a two-stage exploration and verification strategy, leading to the discovery of 106 state-of-the-art linear attention architectures that surpass human-designed counterparts. This advancement is likened to the \"AlphaGo moment,\" signifying AI's emergent ability to generate novel, effective solutions beyond human intuition, with its performance improving with increased computational input.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/AIDesignsBetterAI_TheASIARCBreakthroughwav-47654444-1753782140444/playlist.m3u8"
 }
