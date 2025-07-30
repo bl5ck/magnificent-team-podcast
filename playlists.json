@@ -272,6 +272,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "16:32"
+      },
+      {
+        "id": "episode-ChatGPTAgent_BridgingResearchandActionwav-35593004-1753887526296",
+        "title": "ChatGPT Agent: Bridging Research and Action",
+        "description": "ChatGPT agent, an evolution in AI capability that allows ChatGPT to independently perform complex tasks using its own virtual computer. This new system combines prior strengths in web interaction (Operator) and information synthesis (deep research), enabling it to navigate websites, run code, and analyze data to fulfill user requests like planning events or preparing reports. Users maintain full control, able to interrupt or manage the agent's actions, and the system shows improved performance across various benchmarks, including financial analysis and data science. The document also addresses safety measures and risk mitigation, particularly concerning sensitive data and prompt injection attacks, highlighting the ongoing development and future potential of this agentic system.",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/ChatGPTAgent_BridgingResearchandActionwav-35593004-1753887526296/playlist.m3u8",
+        "publishDate": "2025-07-30",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "4h 28m",
