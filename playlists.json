@@ -282,6 +282,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-Unlocking_Your_Inner_Jarvis__How_the_Mono_Context_Protocol_MCP_Could_Revolutionize_AI_Interactionm4a-23223461-1753954784501",
+        "title": "Unlocking Your Inner Jarvis - How MCP Could Revolutionize AI Interaction",
+        "description": "A presentation by Kent C. Dodds, an educator in user experience, who introduces the Mono Context Protocol (MCP) as the future of user interaction. Dodds explains how MCP aims to overcome the limitations of current application integrations, drawing a parallel to Jarvis from Iron Man, a highly intelligent and integrated AI assistant. He illustrates how MCP enables seamless communication between diverse services and applications by providing a standardized protocol, allowing for advanced, natural language-driven interactions with AI agents. The discussion also touches upon the evolution from basic Large Language Models (LLMs) to tool-integrated LLMs, and finally to the ubiquitous and highly adaptable MCP-based systems. The presentation concludes by emphasizing the potential of MCP to create a unified and intuitive user experience, moving beyond traditional web browsers to a more integrated, AI-centric interaction model with graphical user interface support.",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/Unlocking_Your_Inner_Jarvis__How_the_Mono_Context_Protocol_MCP_Could_Revolutionize_AI_Interactionm4a-23223461-1753954784501/playlist.m3u8",
+        "publishDate": "2025-07-31",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "4h 28m",
