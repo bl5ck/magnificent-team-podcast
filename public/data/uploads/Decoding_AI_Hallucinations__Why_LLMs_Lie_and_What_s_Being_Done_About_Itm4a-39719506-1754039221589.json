@@ -1,0 +1,19 @@
+{
+  "uploadId": "Decoding_AI_Hallucinations__Why_LLMs_Lie_and_What_s_Being_Done_About_Itm4a-39719506-1754039221589",
+  "fileName": "Decoding_AI_Hallucinations__Why_LLMs_Lie_and_What_s_Being_Done_About_It.m4a",
+  "totalChunks": 10,
+  "metadata": {
+    "title": "AI Hallucinations: Causes, Rates, and Solutions",
+    "description": "AI hallucinations in large language models (LLMs), defining them as plausible yet false outputs that AI confidently presents as fact. It explores why these errors occur, citing factors like probabilistic generation, limitations in training data, and a lack of inherent knowledge boundaries within the models. The text also outlines various techniques to mitigate hallucinations, such as Retrieval-Augmented Generation (RAG) and improved prompt engineering. Furthermore, it discusses the real-world implications of hallucinations, including the spread of misinformation and the erosion of trust, while offering an outlook on future research and the importance of human oversight in AI systems.",
+    "creator": "Podcast",
+    "playlistName": "AI Daily",
+    "playlistId": "playlist-1751338976547",
+    "episodeId": "episode-Decoding_AI_Hallucinations__Why_LLMs_Lie_and_What_s_Being_Done_About_Itm4a-39719506-1754039221589"
+  },
+  "fileExtension": "m4a",
+  "playlistId": "playlist-1751338976547",
+  "episodeId": "episode-Decoding_AI_Hallucinations__Why_LLMs_Lie_and_What_s_Being_Done_About_Itm4a-39719506-1754039221589",
+  "episodeTitle": "AI Hallucinations: Causes, Rates, and Solutions",
+  "episodeDescription": "AI hallucinations in large language models (LLMs), defining them as plausible yet false outputs that AI confidently presents as fact. It explores why these errors occur, citing factors like probabilistic generation, limitations in training data, and a lack of inherent knowledge boundaries within the models. The text also outlines various techniques to mitigate hallucinations, such as Retrieval-Augmented Generation (RAG) and improved prompt engineering. Furthermore, it discusses the real-world implications of hallucinations, including the spread of misinformation and the erosion of trust, while offering an outlook on future research and the importance of human oversight in AI systems.",
+  "playlistName": "AI Daily"
+}
