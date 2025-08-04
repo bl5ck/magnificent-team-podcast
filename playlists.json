@@ -292,6 +292,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "12:01"
+      },
+      {
+        "id": "episode-Decoding_AI_Hallucinations__Why_LLMs_Lie_and_What_s_Being_Done_About_Itm4a-39719506-1754039221589",
+        "title": "AI Hallucinations: Causes, Rates, and Solutions",
+        "description": "AI hallucinations in large language models (LLMs), defining them as plausible yet false outputs that AI confidently presents as fact. It explores why these errors occur, citing factors like probabilistic generation, limitations in training data, and a lack of inherent knowledge boundaries within the models. The text also outlines various techniques to mitigate hallucinations, such as Retrieval-Augmented Generation (RAG) and improved prompt engineering. Furthermore, it discusses the real-world implications of hallucinations, including the spread of misinformation and the erosion of trust, while offering an outlook on future research and the importance of human oversight in AI systems.",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/Decoding_AI_Hallucinations__Why_LLMs_Lie_and_What_s_Being_Done_About_Itm4a-39719506-1754039221589/playlist.m3u8",
+        "publishDate": "2025-08-04",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "4h 52m",
