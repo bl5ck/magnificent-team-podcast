@@ -15,5 +15,7 @@
   "episodeId": "episode-SmallThinker__The_Breakthrough_AI_Designed_for_Your_Devices_Not_the_Cloudm4a-39762088-1754362783028",
   "episodeTitle": "SmallThinker: Local LLMs for Efficient On-Device AI",
   "episodeDescription": "SmallThinker, a novel family of large language models (LLMs) engineered specifically for efficient local deployment on devices like laptops and smartphones. Unlike traditional LLMs designed for cloud data centers, SmallThinker prioritizes memory and compute constraints through architectural innovations such as a fine-grained Mixture-of-Experts (MoE) design and ReGLU-based feed-forward sparsity, ensuring high performance with minimal active parameters. The models also feature NoPE-RoPE hybrid attention for efficient context handling and a pre-attention router to manage I/O lag, significantly improving inference speed on constrained hardware. While acknowledging limitations in training set size, alignment, and language coverage compared to cloud-based counterparts, SmallThinker offers a democratizing solution for private and responsive AI across a broader range of user applications.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/SmallThinker__The_Breakthrough_AI_Designed_for_Your_Devices_Not_the_Cloudm4a-39762088-1754362783028/playlist.m3u8"
 }
