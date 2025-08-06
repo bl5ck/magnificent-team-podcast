@@ -312,6 +312,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "20:35"
+      },
+      {
+        "id": "episode-OM1__Bridging_AI_Robots_and_Your_World_with_a_Unified_Intelligencem4a-18022964-1754466933805",
+        "title": "OpenMind OM1: Modular AI for Agents and Robots",
+        "description": " OpenMind's OM1, a modular AI runtime designed for both digital agents and physical robots. It highlights OM1's architecture, emphasizing its ease of maintenance, extensibility through plugins for various inputs like GPS, LIDAR, and hardware support for robots like Unitree and TurtleBot4. OM1 facilitates LLM integration, allowing AI personas to interact with models such as OpenAI's gpt-4o, and details its command-line interface (CLI) for starting agents and managing configurations.",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/OM1__Bridging_AI_Robots_and_Your_World_with_a_Unified_Intelligencem4a-18022964-1754466933805/playlist.m3u8",
+        "publishDate": "2025-08-06",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "5h 33m",
