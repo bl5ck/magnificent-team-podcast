@@ -15,5 +15,7 @@
   "episodeId": "episode-OpenAI_s_GPT-OSS__Open-Weight_Models_Redefining_AI_Access__Safetym4a-28681056-1754542756000",
   "episodeTitle": "OpenAI Releases gpt-oss-120b and gpt-oss-20b: High-Performance Open-Weight Language Models",
   "episodeDescription": "The release of gpt-oss-120b and gpt-oss-20b, two open-weight language models from OpenAI designed for high performance at a low cost. These models, available under the Apache 2.0 license, excel in reasoning and tool use, often outperforming similarly sized open models and even some proprietary ones on specific benchmarks. They are optimized for efficient deployment on consumer hardware and offer customization with full chain-of-thought capabilities. Emphasizing safety, OpenAI details rigorous testing, including adversarial fine-tuning, to ensure these models meet high safety standards. The release also includes open-sourced components like a tokenizer and reference implementations, promoting widespread adoption and fostering innovation in democratic Ai.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/OpenAI_s_GPT-OSS__Open-Weight_Models_Redefining_AI_Access__Safetym4a-28681056-1754542756000/playlist.m3u8"
 }
