@@ -15,5 +15,7 @@
   "episodeId": "episode-GPT-5_Unpacked__Early_Power_Persistent_Quirks_and_the_Human_Prompt_Paradoxm4a-19783567-1754645427044",
   "episodeTitle": "GPT-5's Advanced Coding and Reasoning Capabilities",
   "episodeDescription": "An early look at GPT-5 via API, highlighting its impressive multimodal capabilities, particularly in coding and visual generation. The video demonstrates GPT-5's ability to create functional and visually appealing websites, generate complex visuals, and even solve Olympiad-level math questions and Rubik's Cube simulations. While the model excels in instruction following and produces superior visual clarity compared to other models like Opus 4, it also exhibits some minor flaws, such as occasional rendering issues or difficulty with nuanced reasoning tasks when prompts are designed to trick it. Overall, the presenter considers GPT-5 a significant step forward in AI, especially for coding applications, though they caution against immediate \"AGI\" hype upon its public release.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/GPT-5_Unpacked__Early_Power_Persistent_Quirks_and_the_Human_Prompt_Paradoxm4a-19783567-1754645427044/playlist.m3u8"
 }
