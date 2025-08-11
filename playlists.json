@@ -352,6 +352,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-Beyond_Tokens__Unpacking_Facebook_s_Byte_Latent_Transformer_BLTm4a-16189783-1754900854000",
+        "title": "Beyond Tokens: Unpacking Facebook's Byte Latent Transformer(BLT)",
+        "description": "Facebook Research introduces the Byte Latent Transformer (BLT), an innovative byte-level Large Language Model (LLM) architecture designed to match or exceed the performance of traditional tokenization-based LLMs while offering improved inference efficiency and robustness. The repository provides code, quick-start guides for environment setup, and instructions for downloading pre-trained HuggingFace model weights to facilitate reproduction of their research. It outlines the BLT's unique approach of encoding bytes into dynamically sized patches, which adapt based on data complexity, and details new attention mechanisms and byte-sequence memory that enhance information flow. The documentation also includes guidance for downloading training data and running debug jobs, alongside licensing information and citation details for the BLT paper.",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/Beyond_Tokens__Unpacking_Facebook_s_Byte_Latent_Transformer_BLTm4a-16189783-1754900854000/playlist.m3u8",
+        "publishDate": "2025-08-11",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "5h 33m",
