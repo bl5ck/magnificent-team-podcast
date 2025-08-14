@@ -362,6 +362,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-FastVideo_Unpacked__Accelerating_AI_Video_Generation_from_Bottlenecks_to_Breakthroughsm4a-22391659-1755153480917",
+        "title": "FastVideo: Accelerated Video Generation Framework",
+        "description": "FastVideo, a comprehensive framework designed to accelerate video generation through diffusion models. This system offers an end-to-end pipeline, encompassing everything from data preprocessing to model training, fine-tuning, distillation, and inference. FastVideo distinguishes itself with state-of-the-art performance optimizations like Sliding Tile Attention and TeaCache, alongside E2E post-training support. It also facilitates scalable training and offers extensive documentation for installation, usage, and development, making it a versatile tool for video diffusion tasks.",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/FastVideo_Unpacked__Accelerating_AI_Video_Generation_from_Bottlenecks_to_Breakthroughsm4a-22391659-1755153480917/playlist.m3u8",
+        "publishDate": "2025-08-14",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "5h 33m",
