@@ -321,7 +321,7 @@
         "publishDate": "2025-08-06",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "9:19"
       },
       {
         "id": "episode-OpenAI_s_GPT-OSS__Open-Weight_Models_Redefining_AI_Access__Safetym4a-28681056-1754542756000",
@@ -341,7 +341,7 @@
         "publishDate": "2025-08-08",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "10:14"
       },
       {
         "id": "episode-From_Predicting_Words_to_Perceiving_Worlds__The_Unseen_Evolution_of_ChatGPTm4a-52727215-1754646111386",
@@ -351,7 +351,7 @@
         "publishDate": "2025-08-08",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "27:18"
       },
       {
         "id": "episode-Beyond_Tokens__Unpacking_Facebook_s_Byte_Latent_Transformer_BLTm4a-16189783-1754900854000",
@@ -361,7 +361,7 @@
         "publishDate": "2025-08-11",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "8:23"
       },
       {
         "id": "episode-FastVideo_Unpacked__Accelerating_AI_Video_Generation_from_Bottlenecks_to_Breakthroughsm4a-22391659-1755153480917",
@@ -371,10 +371,10 @@
         "publishDate": "2025-08-14",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "00:00"
+        "duration": "11:35"
       }
     ],
-    "totalDuration": "5h 33m",
+    "totalDuration": "6h 40m",
     "id": "playlist-1751338976547"
   }
 ]
