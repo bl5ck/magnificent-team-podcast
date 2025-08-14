@@ -1,0 +1,19 @@
+{
+  "uploadId": "FastVideo_Unpacked__Accelerating_AI_Video_Generation_from_Bottlenecks_to_Breakthroughsm4a-22391659-1755153480917",
+  "fileName": "FastVideo_Unpacked__Accelerating_AI_Video_Generation_from_Bottlenecks_to_Breakthroughs.m4a",
+  "totalChunks": 6,
+  "metadata": {
+    "title": "FastVideo: Accelerated Video Generation Framework",
+    "description": "FastVideo, a comprehensive framework designed to accelerate video generation through diffusion models. This system offers an end-to-end pipeline, encompassing everything from data preprocessing to model training, fine-tuning, distillation, and inference. FastVideo distinguishes itself with state-of-the-art performance optimizations like Sliding Tile Attention and TeaCache, alongside E2E post-training support. It also facilitates scalable training and offers extensive documentation for installation, usage, and development, making it a versatile tool for video diffusion tasks.",
+    "creator": "Podcast",
+    "playlistName": "AI Daily",
+    "playlistId": "playlist-1751338976547",
+    "episodeId": "episode-FastVideo_Unpacked__Accelerating_AI_Video_Generation_from_Bottlenecks_to_Breakthroughsm4a-22391659-1755153480917"
+  },
+  "fileExtension": "m4a",
+  "playlistId": "playlist-1751338976547",
+  "episodeId": "episode-FastVideo_Unpacked__Accelerating_AI_Video_Generation_from_Bottlenecks_to_Breakthroughsm4a-22391659-1755153480917",
+  "episodeTitle": "FastVideo: Accelerated Video Generation Framework",
+  "episodeDescription": "FastVideo, a comprehensive framework designed to accelerate video generation through diffusion models. This system offers an end-to-end pipeline, encompassing everything from data preprocessing to model training, fine-tuning, distillation, and inference. FastVideo distinguishes itself with state-of-the-art performance optimizations like Sliding Tile Attention and TeaCache, alongside E2E post-training support. It also facilitates scalable training and offers extensive documentation for installation, usage, and development, making it a versatile tool for video diffusion tasks.",
+  "playlistName": "AI Daily"
+}
