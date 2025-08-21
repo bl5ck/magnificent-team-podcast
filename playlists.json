@@ -382,6 +382,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-Alpha_Geometry__Unpacking_AI_s_Human-Like_Leap_in_Solving_IMO_Math_Problemsm4a-26955448-1755751805289",
+        "title": "Alpha Geometry: AI Solves IMO Geometry Problems",
+        "description": "Alpha Geometry, an AI model developed by Google DeepMind in January 2024, designed to solve complex geometry problems from the International Mathematical Olympiad (IMO). It highlights that a non-AI approach, combining a deductive database (DD) of geometric rules with algebraic reasoning (AR), could already solve a significant portion of these problems. However, the true breakthrough of Alpha Geometry lies in its language model, which generates auxiliary constructions—additional lines or shapes crucial for solving the most challenging problems. This AI component, trained on hundreds of millions of synthetically generated proofs, integrates with the DD+AR system to achieve a performance better than an IMO silver medalist, demonstrating a powerful synergy between logical deduction and creative problem-solving in machines.",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/Alpha_Geometry__Unpacking_AI_s_Human-Like_Leap_in_Solving_IMO_Math_Problemsm4a-26955448-1755751805289/playlist.m3u8",
+        "publishDate": "2025-08-21",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "6h 40m",
