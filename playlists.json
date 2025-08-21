@@ -61,7 +61,16 @@
         "publishDate": "2025-07-10",
         "processingStatus": "complete",
         "thumbnailUrl": null,
-        "duration": "10:57"
+        "duration": "10:57",
+        "materials": [
+          {
+            "name": "Read more",
+            "url": "https://www.securities.io/quantum-computing-exponential-speedup/",
+            "content": "",
+            "isSource": false,
+            "type": "website"
+          }
+        ]
       },
       {
         "id": "episode-Agent2Agent_InteroperabilityforAIApplicationswav-35347244-1750388956864",
