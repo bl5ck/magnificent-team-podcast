@@ -1,0 +1,19 @@
+{
+  "uploadId": "OM1__Bridging_AI_Robots_and_Your_World_with_a_Unified_Intelligencem4a-18022964-1755751523711",
+  "fileName": "OM1__Bridging_AI,_Robots,_and_Your_World_with_a_Unified_Intelligence.m4a",
+  "totalChunks": 5,
+  "metadata": {
+    "title": "OpenMind OM1: Modular AI for Agents and Robots",
+    "description": "OpenMind's OM1, a modular AI runtime designed for both digital agents and physical robots. It highlights OM1's capabilities, such as its simple, Python-based architecture, ease of integrating new data inputs and hardware via plugins, and support for standard middleware like ROS2. The documentation outlines how OM1 allows users to configure and deploy AI personas that can interact with large language models (LLMs) and control various robot types, including quadrupeds and humanoids. Furthermore, it details the command-line interface (CLI) for starting agents and provides guidance on linting, testing, and updating documentation, emphasizing best practices for developers working with the system.",
+    "creator": "Podcast",
+    "playlistName": "AI Daily",
+    "playlistId": "playlist-1751338976547",
+    "episodeId": "episode-OM1__Bridging_AI_Robots_and_Your_World_with_a_Unified_Intelligencem4a-18022964-1755751523711"
+  },
+  "fileExtension": "m4a",
+  "playlistId": "playlist-1751338976547",
+  "episodeId": "episode-OM1__Bridging_AI_Robots_and_Your_World_with_a_Unified_Intelligencem4a-18022964-1755751523711",
+  "episodeTitle": "OpenMind OM1: Modular AI for Agents and Robots",
+  "episodeDescription": "OpenMind's OM1, a modular AI runtime designed for both digital agents and physical robots. It highlights OM1's capabilities, such as its simple, Python-based architecture, ease of integrating new data inputs and hardware via plugins, and support for standard middleware like ROS2. The documentation outlines how OM1 allows users to configure and deploy AI personas that can interact with large language models (LLMs) and control various robot types, including quadrupeds and humanoids. Furthermore, it details the command-line interface (CLI) for starting agents and provides guidance on linting, testing, and updating documentation, emphasizing best practices for developers working with the system.",
+  "playlistName": "AI Daily"
+}
