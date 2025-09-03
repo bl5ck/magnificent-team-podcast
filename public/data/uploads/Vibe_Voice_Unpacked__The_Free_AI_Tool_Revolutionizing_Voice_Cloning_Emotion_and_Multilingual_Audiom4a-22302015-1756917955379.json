@@ -15,5 +15,7 @@
   "episodeId": "episode-Vibe_Voice_Unpacked__The_Free_AI_Tool_Revolutionizing_Voice_Cloning_Emotion_and_Multilingual_Audiom4a-22302015-1756917955379",
   "episodeTitle": "Vibe Voice: Free AI Text-to-Speech and Voice Cloning",
   "episodeDescription": "Vibe Voice by Microsoft, a free and open-source AI text-to-speech and voice cloning generator. The video highlights Vibe Voice's capabilities, including its ability to clone voices accurately with just a few seconds of audio, generate context-aware emotional expressions, support multiple languages and accents, and even include background music in its output. Additionally, the tool can create long audio generations, exceeding 90 minutes, making it suitable for podcasts and audiobooks. The video concludes by demonstrating how to install and use Vibe Voice locally on a computer for unlimited, free usage, comparing its performance favorably against other leading text-to-speech models.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/Vibe_Voice_Unpacked__The_Free_AI_Tool_Revolutionizing_Voice_Cloning_Emotion_and_Multilingual_Audiom4a-22302015-1756917955379/playlist.m3u8"
 }
