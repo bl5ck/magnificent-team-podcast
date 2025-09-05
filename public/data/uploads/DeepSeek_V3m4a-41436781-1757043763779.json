@@ -15,5 +15,7 @@
   "episodeId": "episode-DeepSeek_V3m4a-41436781-1757043763779",
   "episodeTitle": "DeepSeek V3.1: A New Agentic Era",
   "episodeDescription": "DeepSeek V3.1 model, emphasizing its significance despite being labeled a minor upgrade. The speaker highlights its potential as the best open-weight model available, noting its hybrid inference architecture that combines thinking and non-thinking processes for greater efficiency. A key focus of V3.1 is its enhanced post-training for tool usage and function calling, making it highly suitable for multi-step agent tasks, particularly in agentic coding. The explanation also touches upon V3.1's improved token efficiency and its competitive pricing structure, which could offer a more cost-effective alternative to other leading models, though potential API hosting issues are also raised.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/DeepSeek_V3m4a-41436781-1757043763779/playlist.m3u8"
 }
