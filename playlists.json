@@ -411,6 +411,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "11:32"
+      },
+      {
+        "id": "episode-AI_Cold_War__Corporate_Espionage_Billions_and_the_Battle_for_Grok_s_Codem4a-22204153-1757044274641",
+        "title": "xAI Sues Engineer for Code Theft, Escalating AI Rivalry",
+        "description": "A lawsuit filed by xAI, Elon Musk's AI company, against a former engineer, Xuechen Li. xAI alleges that Li stole the entire Grok chatbot codebase and uploaded it to OpenAI's servers just days before his resignation, also selling $7 million in xAI stock around the same time. The post highlights that forensic checks confirmed confidential files on Li's personal devices and that he reportedly admitted to the theft. The discussion emphasizes the intensifying rivalry between xAI and OpenAI, noting Musk's previous legal battles and criticisms of OpenAI.",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/AI_Cold_War__Corporate_Espionage_Billions_and_the_Battle_for_Grok_s_Codem4a-22204153-1757044274641/playlist.m3u8",
+        "publishDate": "2025-09-05",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "7h 15m",
