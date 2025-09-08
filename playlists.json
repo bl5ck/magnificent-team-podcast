@@ -441,6 +441,16 @@
         "processingStatus": "complete",
         "thumbnailUrl": null,
         "duration": "00:00"
+      },
+      {
+        "id": "episode-The_Secret_History_of_Ternary_Computing__Why_Zeros_Ones_and_Tm4a-25448207-1757328887484",
+        "title": "Ternary Computing: The System That Could Change Computers Forever",
+        "description": "The foundational differences between binary and ternary computing systems, highlighting why binary became the dominant standard despite ternary's theoretical advantages. It explains how binary relies on two states (0 and 1), made practical by the invention of the transistor, and why this system was chosen for its convenience and reliability with early electrical systems. The text then introduces ternary computing, utilizing three states (often -1, 0, and +1), and argues for its superior efficiency based on mathematical principles related to the natural logarithm e. Finally, the source touches upon the historical attempts to build ternary computers in the Soviet Union and its recent resurgence in specialized applications like artificial intelligence and new hardware developments that overcome previous manufacturing limitations, potentially paving the way for its wider adoption.",
+        "audioUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/The_Secret_History_of_Ternary_Computing__Why_Zeros_Ones_and_Tm4a-25448207-1757328887484/playlist.m3u8",
+        "publishDate": "2025-09-08",
+        "processingStatus": "complete",
+        "thumbnailUrl": null,
+        "duration": "00:00"
       }
     ],
     "totalDuration": "7h 26m",
