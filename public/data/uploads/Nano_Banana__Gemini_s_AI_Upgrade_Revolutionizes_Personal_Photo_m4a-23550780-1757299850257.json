@@ -15,5 +15,7 @@
   "episodeId": "episode-Nano_Banana__Gemini_s_AI_Upgrade_Revolutionizes_Personal_Photo_m4a-23550780-1757299850257",
   "episodeTitle": "Gemini's Nano Banana: Image Editing Unleashed",
   "episodeDescription": "Significant upgrade to image editing capabilities within the Gemini app, powered by a new Google DeepMind model called Nano Banana. This update primarily focuses on maintaining consistent likeness of individuals and pets across various edits, ensuring that subjects retain their recognizable features even when changes are applied. Users can now transform images in advanced ways, such as changing outfits or locations, blending multiple photos, engaging in multi-turn editing, and applying styles from one image to another. The article highlights that all AI-generated or edited images will include both visible and invisible watermarks to indicate their synthetic origin.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/Nano_Banana__Gemini_s_AI_Upgrade_Revolutionizes_Personal_Photo_m4a-23550780-1757299850257/playlist.m3u8"
 }
