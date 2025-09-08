@@ -15,5 +15,7 @@
   "episodeId": "episode-UDML__The_AI-Powered_Semantic_Bridge_Revolutionizing_UI_Designm4a-27702087-1757322908482",
   "episodeTitle": "Universal Design Markup Language: AI-Era UI Development",
   "episodeDescription": "The Universal Design Markup Language (UDML) is presented as an open, semantic design language for the AI era, aiming to bridge the gap between visual design tools and AI-driven code generation. UDML allows for the description of user interfaces in a machine-readable format that AI developer agents can translate into functional applications across various platforms. The structure of UDML includes components like instructions for AI, metadata, styling tokens, and definitions for reusable components and screens, emphasizing its modular and extensible nature. It's designed to be a community-driven standard, enabling humans and AI to communicate design intent more effectively, unlike traditional static design files. The source outlines what UDML is (XML-based, semantic, AI-oriented, modular) and what it isn't (a rendering engine, a Figma replacement), with examples demonstrating how a design concept translates into UDML and subsequently into AI-generated code.\n",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/UDML__The_AI-Powered_Semantic_Bridge_Revolutionizing_UI_Designm4a-27702087-1757322908482/playlist.m3u8"
 }
