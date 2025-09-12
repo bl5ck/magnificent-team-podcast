@@ -15,5 +15,7 @@
   "episodeId": "episode-The_Agentic_Web__How_AI_is_Rewiring_the_Internet_and_Redefiningm4a-22408308-1757663324123",
   "episodeTitle": "These are from O'Reilly AI Codecon",
   "episodeDescription": "The emerging landscape of AI agents, focusing on their architecture, collaboration, and ethical considerations. Alex Komoroske champions a future of decentralized, adaptable, and prosocial AI, emphasizing \"Resonant Computing\" over centralized \"super-assistants\" to avoid pitfalls like \"Junk Food Regret.\" Complementing this, Ken Kousen and Jessica Kerr introduce the Model Context Protocol (MCP) as a critical standard for enabling AI agents to interact with the real world and collaborate effectively, outlining various methods for agent orchestration and highlighting the importance of token efficiency. Brennon Bortz then addresses the scaling of agentic AI within enterprises, stressing the need for leadership, security, and integration into developer workflows to achieve productivity gains. Finally, Ramesh Raskar presents Project NANDA, an initiative for a \"Networked AI Agents in Decentralized Architecture,\" envisioning an \"Internet of AI Agents\" that can collaborate across silos, while Chris Butler contemplates the future of human-agent teams, raising crucial questions about decision-making, alignment, and ethical frameworks when humans and AI collaborate.",
-  "playlistName": "Event Recaps - 2025"
+  "playlistName": "Event Recaps - 2025",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/The_Agentic_Web__How_AI_is_Rewiring_the_Internet_and_Redefiningm4a-22408308-1757663324123/playlist.m3u8"
 }
