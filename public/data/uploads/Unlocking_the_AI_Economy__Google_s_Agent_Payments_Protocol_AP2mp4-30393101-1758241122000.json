@@ -15,5 +15,7 @@
   "episodeId": "episode-Unlocking_the_AI_Economy__Google_s_Agent_Payments_Protocol_AP2mp4-30393101-1758241122000",
   "episodeTitle": "Agent Payments Protocol (AP2): Powering AI Commerce",
   "episodeDescription": "Google's Agent Payments Protocol (AP2) is an open standard designed to enable secure and reliable payments initiated by AI agents. It addresses key concerns such as authorization, authenticity, and accountability in agent-led transactions, which differ from traditional human-initiated payments.\n\nAP2 establishes trust through Mandates, cryptographically signed digital contracts that capture a user's intent and authorization for a purchase. These mandates provide an auditable record for both real-time and delegated tasks, supporting various payment methods, including credit cards and stablecoins.\n\nGoogle highlights the collaborative nature of AP2, noting partnerships with over 60 organizations and inviting further industry participation to build a secure and scalable future for AI-driven commerce.",
-  "playlistName": "AI Daily"
+  "playlistName": "AI Daily",
+  "progress": "complete",
+  "hlsUrl": "https://res.cloudinary.com/dvtckdk3d/raw/upload/podcast/final/Unlocking_the_AI_Economy__Google_s_Agent_Payments_Protocol_AP2mp4-30393101-1758241122000/playlist.m3u8"
 }
