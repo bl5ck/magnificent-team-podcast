@@ -64,6 +64,24 @@
     "coverImage": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=400&fit=crop",
     "episodes": [
       {
+        "id": "Unlocking_the_AI_Economy__Google_s_Agent_Payments_Protocol_AP2mp4-30393101-1758241122000",
+        "title": "Agent Payments Protocol (AP2): Powering AI Commerce",
+        "description": "The provided text introduces Google's Agent Payments Protocol (AP2), an open standard designed to enable secure and reliable payments initiated by AI agents. This protocol addresses critical concerns such as authorization, authenticity, and accountability in agent-led transactions, which differ from traditional human-initiated payments. AP2 establishes trust through Mandates, cryptographically signed digital contracts that capture a user's intent and authorization for a purchase. These mandates create an auditable record for both real-time and delegated tasks, supporting various payment methods, including credit cards and stablecoins. Google emphasizes the collaborative nature of AP2, highlighting partnerships with over 60 organizations and inviting further industry participation to foster a secure and scalable future for AI-driven commerce.",
+        "duration": "00:00",
+        "publishDate": "Sep 19, 2025",
+        "audioUrl": "",
+        "thumbnailUrl": "",
+        "materials": [
+          {
+            "name": "Source",
+            "url": "https://cloud.google.com/blog/products/ai-machine-learning/announcing-agents-to-payments-ap2-protocol",
+            "content": "",
+            "isSource": true,
+            "type": "website"
+          }
+        ]
+      },
+      {
         "id": "episode-QuantumComputingsUnconditionalExponentialSpeedupwav-31539884-1752115952516",
         "title": "Quantum Computing's Unconditional Exponential Speedup",
         "description": "Quantum Computing's Unconditional Exponential Speedup",
